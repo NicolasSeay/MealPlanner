@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.nico</groupId>
-	<artifactId>mp</artifactId>
+	<artifactId>MealPlanner</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>mp</name>
-	<description>Meal Planner Application</description>
+	<name>MealPlanner</name>
+	<description>MealPlanner Application</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
