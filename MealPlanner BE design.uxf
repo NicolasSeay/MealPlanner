@@ -1,6 +1,5 @@
 <diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>330</x><y>390</y><w>290</w><h>180</h></coordinates><panel_attributes>Recipe
 --
--id: int
 -name: String
 -servings: int
 -prepTime: int
@@ -11,7 +10,6 @@
 +Recipe(name, servings, prepTime)
 +addIngredient(ingredient: Ingredient): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>300</x><y>630</y><w>350</w><h>140</h></coordinates><panel_attributes>Ingredient
 --
--id: int
 -name: String
 -amount: BigDecimal
 -measurement: String
@@ -20,7 +18,6 @@
 --
 Ingredient(name, amount, measurement, price, calories)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>200</y><w>220</w><h>110</h></coordinates><panel_attributes>User
 --
--id: int
 -username: String
 --
 +User(username)
