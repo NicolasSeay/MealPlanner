@@ -1,9 +1,9 @@
 -- CREATE DATABASE mealplanner;
 USE mealplanner;
 
-DROP TABLE ingredient;
-DROP TABLE recipe;
-DROP TABLE user;
+DROP TABLE IF EXISTS ingredient;
+DROP TABLE IF EXISTS recipe;
+DROP TABLE IF EXISTS user;
 
 CREATE TABLE user (
 	id BIGINT PRIMARY KEY AUTO_INCREMENT,
@@ -26,7 +26,7 @@ CREATE TABLE recipe (
 );
 
 CREATE TABLE ingredient (
-	id BIGINT PRIMARY KEY AUTO_INCREMENT,
+	id BIGINT AUTO_INCREMENT,
     recipe_id BIGINT,
     name VARCHAR(32),
     amount DOUBLE,
@@ -35,5 +35,6 @@ CREATE TABLE ingredient (
     calories INT,
     CONSTRAINT fk_recipe FOREIGN KEY (recipe_id)
     REFERENCES recipe(id)
-    ON DELETE CASCADE
+    ON DELETE CASCADE,
+    PRIMARY KEY(id, recipe_id)
 );
