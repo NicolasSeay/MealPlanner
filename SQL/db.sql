@@ -12,22 +12,28 @@ CREATE TABLE user (
 );
 
 CREATE TABLE recipe (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	user_id INT REFERENCES user(id),
+	id BIGINT PRIMARY KEY AUTO_INCREMENT,
+	user_id BIGINT,
 	name VARCHAR(32),
 	servings INT,
 	prep_time INT,
 	total_price DOUBLE,
 	total_cals INT,
-	notes VARCHAR(1000)
+	notes VARCHAR(1000),
+    CONSTRAINT fk_user FOREIGN KEY (user_id)
+    REFERENCES user(id)
+    ON DELETE CASCADE
 );
 
 CREATE TABLE ingredient (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    recipe_id INT REFERENCES recipe(id),
+	id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    recipe_id BIGINT,
     name VARCHAR(32),
     amount DOUBLE,
     measurement VARCHAR(10),
     price DOUBLE,
-    calories INT
+    calories INT,
+    CONSTRAINT fk_recipe FOREIGN KEY (recipe_id)
+    REFERENCES recipe(id)
+    ON DELETE CASCADE
 );

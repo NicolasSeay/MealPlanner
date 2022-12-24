@@ -12,7 +12,6 @@ import com.nico.mp.repositories.UserRepository;
 import com.nico.mp.services.UserService;
 
 @Service
-@Transactional
 public class UserServiceImpl implements UserService {
 	
 	@Autowired
