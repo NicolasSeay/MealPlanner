@@ -3,9 +3,9 @@
     <p id="message" class="center">Welcome to the Meal Planner application!</p>
     <p id="title" class="center">Login</p>
     <div id="input">
-        <input class="textbox center" type="text" placeholder="Username">
-        <input class="textbox center" type="password" placeholder="Password">
-        <div id="submit" class="center">Login</div>
+        <input class="textbox center" type="text" [(ngModel)]="username" placeholder="Username">
+        <input class="textbox center" type="password" [(ngModel)]="password" placeholder="Password">
+        <div id="submit" class="center" (click)="login()">Login</div>
     </div>
     <div id="forgot">
         <a href="">Forgot password?</a>
