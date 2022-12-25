@@ -1,0 +1,70 @@
+
+#wrapper {
+    background-color: #fffcf6d5;
+    height: 100%;
+    width: 100%;
+
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+.center {
+    display: block;
+    margin: 0 auto;
+}
+
+#message {
+    font-size: 20px;
+    padding: 8% 0;
+    font-weight: bold;
+}
+
+#title {
+    font-size: 40px;
+    font-weight: lighter;
+    padding: 1% 0;
+}
+
+#input {
+    padding-top: 12%;
+}
+#input > * {
+    width: 70%;
+    font-size: 20px;
+    
+    padding: 8px 16px;
+    border: none;
+}
+
+.textbox {
+    background-color: #fffcf600;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px #cc8c38;
+    margin: 5% auto;
+}
+.textbox:focus-visible {
+    outline: none;
+}
+.textbox:hover {
+    box-shadow: 0 0 6px 1px #cc8c38;
+}
+.textbox:focus {
+    box-shadow: 0 0 0 2px #cc8c38;
+}
+
+#submit {
+    background-color: #cc8c38;
+    color: #e0dedc;
+    border-radius: 8px;
+    margin: 10% auto;
+}
+
+#forgot > * {
+    color: #cc8c38;
+
+    position: relative;
+    // top: 10vh;
+    top: 80%;
+    font-size: 12px;
+}
