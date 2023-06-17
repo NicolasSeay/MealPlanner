@@ -4,6 +4,7 @@ Full-Stack application that allows the user to store recipes and their respectiv
 ### Technologies Used
 - Java 11
 - Angular
+- NgRx
 - MySQL
 
 ### Running Locally
