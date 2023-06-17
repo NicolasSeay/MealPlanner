@@ -16,20 +16,20 @@
 }
 
 #message {
-    font-size: 20px;
+    font-size: 16px;
     padding: 8% 4%;
     font-weight: bold;
 }
 
 #title {
-    font-size: 40px;
+    font-size: 24px;
     font-weight: lighter;
-    padding: 1% 0;
+    padding: 20% 0;
 }
 
-#input {
-    padding-top: 12%;
-}
+// #input {
+//     padding-top: 12%;
+// }
 #input > * {
     width: 70%;
     font-size: 20px;
@@ -55,10 +55,20 @@
 }
 
 #submit {
-    background-color: #cc8c38;
-    color: #e0dedc;
+    box-shadow: 0 0 0 1px #cc8c38;
+    color: #cc8c38;
     border-radius: 8px;
     margin: 10% auto;
+}
+#submit:hover {
+    background-color: #cc8c38;
+    color: #e0dedc;
+    cursor: pointer;
+}
+
+#error {
+    color: red;
+    font-size: 12px;
 }
 
 #forgot {
