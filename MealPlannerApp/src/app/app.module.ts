@@ -22,7 +22,6 @@ import { IngredientService } from './ingredient.service';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    FormsModule
   ],
   providers: [
     UserService,
