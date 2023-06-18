@@ -1,5 +1,7 @@
 package com.nico.mp.controllers;
 
+import com.nico.mp.domain.User;
+import com.nico.mp.domain.UserNoCredentials;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,9 +24,9 @@ public class UserController {
 	private UserService userService;
 	
 	@PostMapping("/login")
-	public ResponseEntity<Long> login(@RequestBody LoginRequest loginRequest) {
-		return new ResponseEntity<Long>(
-			userService.getUserId(loginRequest.getUsername(), loginRequest.getPassword()),
+	public ResponseEntity<UserNoCredentials> login(@RequestBody LoginRequest loginRequest) {
+		return new ResponseEntity<UserNoCredentials>(
+			userService.getUser(loginRequest.getUsername(), loginRequest.getPassword()),
 			HttpStatus.OK
 		);
 	}

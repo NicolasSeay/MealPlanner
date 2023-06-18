@@ -1,5 +1,5 @@
 
 export type Ingredient = {
-    name: String,
+    name: string,
     amount: number,
 }

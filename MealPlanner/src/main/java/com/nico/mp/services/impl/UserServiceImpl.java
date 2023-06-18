@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
+import com.nico.mp.domain.UserNoCredentials;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +21,13 @@ public class UserServiceImpl implements UserService {
 	public UserServiceImpl() {}
 
 	@Override
-	public long getUserId(String username, String password) {
+	public UserNoCredentials getUser(String username, String password) {
 		Optional<User> user = userRepository.findUser(username, password);
-		
-		return user.isPresent() ? user.get().getId() : 0;
+		if (user.isEmpty())
+			return null;
+
+		User u = user.get();
+		return new UserNoCredentials(u.getId(), u.getFirstName(), u.getLastName());
 	}
 
 }

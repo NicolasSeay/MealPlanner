@@ -2,6 +2,6 @@ import { Ingredient } from "./ingredient"
 
 
 export type Recipe = {
-    name: String,
+    name: string,
     ingredientList: Ingredient[]
 }

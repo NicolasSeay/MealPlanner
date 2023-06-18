@@ -3,12 +3,20 @@ USE mealplanner;
 # clear any existing data before filling with dummy data
 DELETE FROM ingredient;
 DELETE FROM recipe;
+-- DELETE FROM credentials;
 DELETE FROM user;
 
 # User data
 INSERT INTO user VALUES
-(1, "Nico", "password1"),
-(2, "Random", "password2");
+(1, "Nico", "Seay", "nico", "password"),
+(2, "Bobby", "Tables", "username", "password");
+-- (1, "Nico", "Seay"),
+-- (2, "Bobby", "Tables");
+
+# Credentials data
+-- INSERT INTO credentials VALUES
+-- (1, "nico", "password"),
+-- (2, "username", "password");
 
 # Recipe data
 INSERT INTO recipe VALUES
