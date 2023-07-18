@@ -1,13 +1,12 @@
 package com.nico.mp.domain;
 
-import java.io.Serializable;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
-
-import lombok.Getter;
-import lombok.Setter;
+import java.io.Serializable;
 
 @Getter
 @Setter

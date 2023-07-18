@@ -1,9 +1,9 @@
 package com.nico.mp.domain;
 
-import java.io.Serializable;
-
 import lombok.Getter;
 import lombok.Setter;
+
+import java.io.Serializable;
 
 /*
  * This Class is used by the @IdClass annotation on the Ingredient entity.

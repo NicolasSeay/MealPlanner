@@ -1,8 +1,8 @@
 package com.nico.mp.services;
 
-import java.util.List;
-
 import com.nico.mp.domain.Ingredient;
+
+import java.util.List;
 
 public interface IngredientService {
 
