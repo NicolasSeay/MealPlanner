@@ -25,10 +25,10 @@ public class UserController {
 	
 	@PostMapping("/login")
 	public ResponseEntity<UserNoCredentials> login(@RequestBody LoginRequest loginRequest) {
-		return new ResponseEntity<UserNoCredentials>(
-			userService.getUser(loginRequest.getUsername(), loginRequest.getPassword()),
-			HttpStatus.OK
-		);
+		UserNoCredentials user = userService.getUser(loginRequest.getUsername(), loginRequest.getPassword());
+		return user != null ?
+				new ResponseEntity<>(user, HttpStatus.OK) :
+				new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 	}
 	
 }

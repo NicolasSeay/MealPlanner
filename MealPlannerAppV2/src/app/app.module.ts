@@ -12,6 +12,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { UserEffects } from './effects/user.effects';
+import { Logger } from './app.logger';
 
 @NgModule({
   declarations: [
@@ -28,9 +30,9 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     StoreModule.forRoot({}, {}),
     StoreRouterConnectingModule.forRoot(),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([UserEffects]),
   ],
-  providers: [],
+  providers: [Logger],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

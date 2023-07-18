@@ -22,11 +22,11 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public UserNoCredentials getUser(String username, String password) {
-		Optional<User> user = userRepository.findUser(username, password);
+		Optional<UserNoCredentials> user = userRepository.findUser(username, password);
 		if (user.isEmpty())
 			return null;
 
-		User u = user.get();
+		UserNoCredentials u = user.get();
 		return new UserNoCredentials(u.getId(), u.getFirstName(), u.getLastName());
 	}
 

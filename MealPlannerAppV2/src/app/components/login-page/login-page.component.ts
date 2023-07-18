@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { login, register } from 'src/app/actions/user.actions';
+import { Logger } from 'src/app/app.logger';
+import { AppState } from 'src/app/app.state';
 
 @Component({
   selector: 'app-login-page',
@@ -17,7 +19,7 @@ export class LoginPageComponent implements OnInit{
   submitted = false
   isRegistering = false
 
-  constructor(private store: Store, private formBuilder: FormBuilder) {}
+  constructor(private store: Store<AppState>, private formBuilder: FormBuilder, private logger: Logger) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -38,11 +40,13 @@ export class LoginPageComponent implements OnInit{
   get r() { return this.registerForm.controls }
 
   doLogin() {
+    this.logger.info(("Login attempt: " + this.l['username'].value + " " + this.l['password'].value))
     this.submitted = true
     this.store.dispatch(login({ username: this.l['username'].value, password: this.l['password'].value }))
   }
 
   doRegister() {
+    this.logger.info(("Registration attempt: " + this.l['firstname'].value + " " + this.l['lastname'].value + " " + this.l['username'].value + " " + this.l['password'].value))
     this.submitted = true
     this.store.dispatch(register({
       firstName: this.r['firstName'].value,
