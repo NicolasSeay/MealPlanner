@@ -14,7 +14,7 @@ export class UserService {
   constructor(private http: HttpClient, private logger: Logger) { }
 
   login(username: string, password: string) {
-    this.logger.info("Sending login request to backend")
+    this.logger.info("[Service] Sending login request to backend")
     var loginRequest: LoginRequest = {
       username,
       password

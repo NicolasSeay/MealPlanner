@@ -13,6 +13,6 @@ export const initialUserState: User = {
 
 export const UserReducer = createReducer(
     initialUserState,
-    on(loginSuccess, (user) => {console.log("[Reducer] Login request caught"); return user}),
+    on(loginSuccess, (user) => user),
     on(logout, () => initialUserState)
 )
