@@ -1,29 +1,35 @@
 package com.nico.mp.controllers;
 
+import com.nico.mp.domain.LoginRequest;
+import com.nico.mp.domain.UserNoCredentials;
+import com.nico.mp.services.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.nico.mp.domain.LoginRequest;
-import com.nico.mp.services.UserService;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin
+@Slf4j
 public class UserController {
 	
 	@Autowired
 	private UserService userService;
 	
-	@GetMapping("/login")
-	public ResponseEntity<Long> login(@RequestBody LoginRequest loginRequest) {
-		return new ResponseEntity<Long>(
-			userService.getUserId(loginRequest.getUsername(), loginRequest.getPassword()),
-			HttpStatus.OK
-		);
+	@PostMapping("/login")
+	public ResponseEntity<UserNoCredentials> login(@RequestBody LoginRequest loginRequest) {
+		log.info("Received login request");
+		UserNoCredentials user = userService.getUser(loginRequest.getUsername(), loginRequest.getPassword());
+
+		if (user != null) {
+			log.info("Login - user found: {}", user.getId());
+			return new ResponseEntity<>(user, HttpStatus.OK);
+		} else {
+			log.info("Login - user not found");
+			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+		}
 	}
 	
 }
