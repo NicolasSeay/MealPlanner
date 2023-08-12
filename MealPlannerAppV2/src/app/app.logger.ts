@@ -44,8 +44,8 @@ export class Logger {
                 value = new Date() + " - ";
             }
             
-            value += "Type: " + LogLevel[msgLevel];
-            value += " - Message: " + msg;
+            value += LogLevel[msgLevel];
+            value += " - " + msg;
             
             // Log the value
             console.log(value);

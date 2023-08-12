@@ -9,10 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
+@CrossOrigin
 @RestController
 @RequestMapping("/user")
-@CrossOrigin
-@Slf4j
 public class UserController {
 	
 	@Autowired
@@ -28,7 +28,7 @@ public class UserController {
 			return new ResponseEntity<>(user, HttpStatus.OK);
 		} else {
 			log.info("Login - user not found");
-			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(null, HttpStatus.OK);
 		}
 	}
 	

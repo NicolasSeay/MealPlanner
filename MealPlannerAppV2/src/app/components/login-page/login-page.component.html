@@ -4,12 +4,6 @@
 
 <div id="wrapper">
     <p id="title" class="center">Welcome to Meal Planner!</p>
-    <!-- <div id="input"> -->
-        <!-- <input class="textbox center" type="text" [(ngModel)]="username" placeholder="Username"> -->
-        <!-- <input class="textbox center" type="password" [(ngModel)]="password" placeholder="Password"> -->
-
-        <!-- <input type="submit" id="submit" class="center" (click)="doLogin()"> -->
-    <!-- </div> -->
 
     <form [formGroup]="loginForm" *ngIf="!isRegistering" (ngSubmit)="doLogin()">
         <div class="mb-3">
@@ -23,13 +17,13 @@
         </div>
 
         <!-- <a routerLink="../register" class="btn btn-link">Register</a> -->
-        <div id="error" *ngIf="userId==0">Invalid username/password</div>
+        <div id="error" *ngIf="(userId$ | async) == 0">Invalid username or password</div>
         <div id="forgot">
-            <a href="" (click)="alertMe()">Forgot password?</a>
+            <p (click)="alertMe()">Forgot password?</p>
         </div>
     </form>
 
-    <form [formGroup]="registerForm" *ngIf="isRegistering" (ngSubmit)="doLogin()">
+    <!-- <form [formGroup]="registerForm" *ngIf="isRegistering" (ngSubmit)="doLogin()">
         <div class="mb-3">
             <input type="text" formControlName="username" class="form-control" placeholder="Username" />
         </div>
@@ -40,11 +34,11 @@
             <button id="submit" class="btn btn-primary">Login</button>
         </div>
 
-        <!-- <a routerLink="../register" class="btn btn-link">Register</a> -->
-        <div id="error" *ngIf="userId==0">Invalid username/password</div>
+        <a routerLink="../register" class="btn btn-link">Register</a>
+        <div id="error" *ngIf="$currentUser.id == 0">Invalid username/password</div>
         <div id="forgot">
             <a href="" (click)="alertMe()">Forgot password?</a>
         </div>
-    </form>
+    </form> -->
     
 </div>

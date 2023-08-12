@@ -4,7 +4,6 @@ USE mealplanner;
 DROP TABLE IF EXISTS ingredient;
 DROP TABLE IF EXISTS recipe;
 DROP TABLE IF EXISTS user;
-DROP TABLE IF EXISTS credentials;
 
 CREATE TABLE user (
 	id BIGINT PRIMARY KEY AUTO_INCREMENT,
@@ -13,13 +12,6 @@ CREATE TABLE user (
 	username VARCHAR(32) NOT NULL,
     password VARCHAR(32) NOT NULL
 );
-
--- CREATE TABLE credentials (
--- 	user_id BIGINT PRIMARY KEY,
--- 	username VARCHAR(32) NOT NULL,
---  password VARCHAR(32) NOT NULL,
---  FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
--- );
 
 CREATE TABLE recipe (
 	id BIGINT PRIMARY KEY AUTO_INCREMENT,

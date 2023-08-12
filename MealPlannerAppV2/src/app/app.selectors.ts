@@ -1,15 +1,27 @@
-import { createSelector } from "@ngrx/store";
-import { AppState } from "./app.state";
+import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { UserState } from "./reducers/user.reducer";
+import { RecipesState } from "./reducers/recipe.reducer";
 
-
-export const selectAppStateFeature = (state: AppState) => state
+// User selectors
+export const selectUserStateFeature =
+  createFeatureSelector<UserState>('user');
 
 export const selectUser = createSelector(
-    selectAppStateFeature,
-    (state: AppState) => state.user
+    selectUserStateFeature,
+    (user: UserState) => user
 )
 
+export const selectUserId = createSelector(
+    selectUserStateFeature,
+    (user: UserState) => user.id
+)
+
+
+// Recipe selectors
+export const selectRecipeStateFeature =
+  createFeatureSelector<RecipesState>('recipe');
+
 export const selectRecipes = createSelector(
-    selectAppStateFeature,
-    (state: AppState) => state.recipes
+    selectRecipeStateFeature,
+    (recipes: RecipesState) => recipes
 )

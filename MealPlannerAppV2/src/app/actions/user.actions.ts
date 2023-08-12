@@ -12,6 +12,10 @@ export const loginSuccess = createAction(
     props<{ user: User }>()
 )
 
+export const loginInvalidCredentials = createAction(
+    'User Login Invalid Credentials'
+)
+
 export const loginError = createAction(
     'User Login Error'
 )

@@ -10,10 +10,13 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UserEffects } from './effects/user.effects';
 import { Logger } from './app.logger';
+import { RecipeEffects } from './effects/recipe.effects';
+import { userReducer } from './reducers/user.reducer';
+import { recipeReducer } from './reducers/recipe.reducer';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,12 @@ import { Logger } from './app.logger';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({
+      'user': userReducer,
+      'recipe': recipeReducer
+    }, {}),
     StoreRouterConnectingModule.forRoot(),
-    EffectsModule.forRoot([UserEffects]),
+    EffectsModule.forRoot([UserEffects, RecipeEffects]),
   ],
   providers: [Logger],
   bootstrap: [AppComponent]

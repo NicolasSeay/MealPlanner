@@ -2,11 +2,22 @@ import { createAction, props } from "@ngrx/store";
 import { Recipe } from "../models/recipe";
 
 
-export const createRecipe = createAction(
-    'Create Recipe'
+export const viewRecipes = createAction(
+    'View Recipes',
+    props<{ id: number }>()
 )
 
-export const updateRecipe = createAction(
+export const viewRecipesSuccess = createAction(
+    'View Recipes Success',
+    props<{ recipes: Recipe[] }>()
+)
+
+export const viewRecipesError = createAction(
+    'View Recipes Error'
+)
+
+// create or update recipe
+export const saveRecipe = createAction(
     'Update Recipe',
     props<{ recipe: Recipe }>()
 )
