@@ -1,33 +1,44 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { EffectsModule } from '@ngrx/effects';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './login/login.component';
-import { UserService } from './user.service';
-import { RecipeService } from './recipe.service';
-import { IngredientService } from './ingredient.service';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { UserEffects } from './effects/user.effects';
+import { Logger } from './app.logger';
+import { RecipeEffects } from './effects/recipe.effects';
+import { userReducer } from './reducers/user.reducer';
+import { recipeReducer } from './reducers/recipe.reducer';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginPageComponent,
+    HomePageComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    StoreModule.forRoot({
+      'user': userReducer,
+      'recipe': recipeReducer
+    }, {}),
+    StoreRouterConnectingModule.forRoot(),
+    EffectsModule.forRoot([UserEffects, RecipeEffects]),
   ],
-  providers: [
-    UserService,
-    RecipeService,
-    IngredientService
-  ],
+  providers: [Logger],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
