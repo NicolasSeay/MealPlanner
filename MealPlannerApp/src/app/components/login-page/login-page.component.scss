@@ -26,7 +26,15 @@
 #title {
     font-size: 24px;
     font-weight: lighter;
-    padding: 8vh 1vw;
+    padding: 6vh 1vw 0vh 1vw;
+}
+
+#loginForm {
+    padding-top: 6vh;
+}
+
+#registerForm {
+    padding-top: 2vh;
 }
 
 .credential {
@@ -52,7 +60,7 @@
     box-shadow: 0 0 0 2px #cc8c38;
 }
 
-#submit {
+.button {
     width: 70%;
     width:min-content;
     font-size: 20px;
@@ -63,12 +71,21 @@
     background-color: #e6e0d6d2;
     border-radius: 2px;
     box-shadow: 0 0 0 1px #cc8c38;
-    margin: 1vh auto;
+    margin: 1vh 1vw;
 }
-#submit:hover {
+.button:hover {
     background-color: #cc8c38;
     color: white;
     cursor: pointer;
+}
+
+#cancel {
+    box-shadow: 0 0 0 1px rgb(173, 173, 173);
+}
+#cancel:hover {
+    color: black;
+    background-color: rgb(173, 173, 173);
+    box-shadow: 0 0 0 1px rgb(173, 173, 173);
 }
 
 #error {
@@ -79,16 +96,15 @@
 }
 
 #forgot {
-    color: blue;
-
     position: absolute;
     width: 100%;
     margin: 0 auto;
     bottom: 6%;
     font-size: 12px;
-    text-decoration: underline;
 }
 #forgot > * {
+    color: blue;
+    text-decoration: underline;
     width: fit-content;
     margin: auto;
 }

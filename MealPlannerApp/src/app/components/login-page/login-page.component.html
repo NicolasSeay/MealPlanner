@@ -1,44 +1,35 @@
 
 <div class="image"></div>
-<!-- <img src="../assets/images/delicious-breakfast-meal-composition-with-copy-space.jpg"> -->
 
 <div id="wrapper">
     <p id="title" >Welcome to Meal Planner!</p>
 
-    <form [formGroup]="loginForm" *ngIf="!isRegistering" (ngSubmit)="doLogin()">
-        <div class="mb-3">
+    <form id="loginForm" [formGroup]="loginForm" *ngIf="!isRegistering" (ngSubmit)="doLogin()">
+        <div>
             <input type="text" formControlName="username" class="form-control credential" placeholder="Username" />
-        </div>
-        <div class="mb-3">
             <input type="password" formControlName="password" class="form-control credential" placeholder="Password" />
         </div>
-        <div>
-            <button id="submit" class="btn btn-primary">Login</button>
-        </div>
+        
+        <button class="btn btn-primary button">Login</button>
 
-        <!-- <a routerLink="../register" class="btn btn-link">Register</a> -->
         <div id="error" *ngIf="(userId$ | async) == 0">Invalid username or password</div>
         <div id="forgot">
-            <p (click)="alertMe()">Forgot password?</p>
+            <span (click)="beginRegistration()">Register</span>
+             | 
+            <span (click)="alertMe()">Forgot password?</span>
         </div>
     </form>
 
-    <!-- <form [formGroup]="registerForm" *ngIf="isRegistering" (ngSubmit)="doLogin()">
-        <div class="mb-3">
-            <input type="text" formControlName="username" class="form-control" placeholder="Username" />
-        </div>
-        <div >
-            <input type="password" formControlName="password" class="form-control" placeholder="Password" />
-        </div>
+    <form id="registerForm" [formGroup]="registerForm" *ngIf="isRegistering" (ngSubmit)="doRegister()">
         <div>
-            <button id="submit" class="btn btn-primary">Login</button>
+            <input type="text" formControlName="firstname" class="form-control credential" placeholder="First Name"/>
+            <input type="text" formControlName="lastname" class="form-control credential" placeholder="Last Name"/>
+            <input type="text" formControlName="username" class="form-control credential" placeholder="Username"/>
+            <input type="password" formControlName="password" class="form-control credential" placeholder="Password"/>
         </div>
 
-        <a routerLink="../register" class="btn btn-link">Register</a>
-        <div id="error" *ngIf="$currentUser.id == 0">Invalid username/password</div>
-        <div id="forgot">
-            <a href="" (click)="alertMe()">Forgot password?</a>
-        </div>
-    </form> -->
+        <button id="cancel" type="reset" (click)="cancelRegistration(); registerForm.reset()" class="btn btn-primary button">Cancel</button>
+        <button class="btn btn-primary button">Register</button>
+    </form>
     
 </div>

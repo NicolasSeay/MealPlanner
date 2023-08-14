@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { login } from 'src/app/actions/user.actions';
+import { login, register } from 'src/app/actions/user.actions';
 import { Logger } from 'src/app/app.logger';
 import { selectUser, selectUserId } from 'src/app/app.selectors';
 import { UserState } from 'src/app/reducers/user.reducer';
@@ -34,8 +34,8 @@ export class LoginPageComponent implements OnInit {
     });
 
     this.registerForm = this.formBuilder.group({
-        firstName: ['', Validators.required],
-        lastName:  ['', Validators.required],
+        firstname: ['', Validators.required],
+        lastname:  ['', Validators.required],
         username:  ['', Validators.required],
         password:  ['', Validators.required]
     });
@@ -51,16 +51,26 @@ export class LoginPageComponent implements OnInit {
     this.store.dispatch(login({ username: this.l['username'].value, password: this.l['password'].value }))
   }
 
-  // doRegister() {
-  //   this.logger.info(("Registration attempt: " + this.l['firstname'].value + " " + this.l['lastname'].value + " " + this.l['username'].value + " " + this.l['password'].value))
-  //   this.submitted = true
-  //   this.store.dispatch(register({
-  //     firstName: this.r['firstName'].value,
-  //     lastName: this.r['lastName'].value,
-  //     username: this.r['username'].value,
-  //     password: this.r['password'].value,
-  //   }))
-  // }
+  beginRegistration() {
+    this.isRegistering = true
+  }
+
+  cancelRegistration() {
+    this.isRegistering = false
+  }
+
+  doRegister() {
+    this.logger.info(("Registration attempt: " + this.r['firstname'].value + " " + this.r['lastname'].value + " " + this.r['username'].value + " " + this.r['password'].value))
+    this.submitted = true
+    this.store.dispatch(register({
+      firstname: this.r['firstname'].value,
+      lastname: this.r['lastname'].value,
+      username: this.r['username'].value,
+      password: this.r['password'].value,
+    }))
+    this.isRegistering = false
+    this.registerForm.reset()
+  }
 
   alertMe() {
     this.store.select(selectUserId).subscribe(userId => alert("ha ha " + userId))
