@@ -1,0 +1,97 @@
+
+.image {
+    width: 100%;
+    height: 100vh;
+    
+    background-image: url("../../../assets/images/flatlay-iron-skillet-with-meat-and-other-food.jpg");
+    background-size: cover;
+}
+
+#wrapper {
+    background-color: #ecebe7d2;
+    height: 60vh;
+    width: 23vw;
+    min-height: 400px;
+    min-width: 300px;
+
+    text-align: center;
+    position: absolute;
+    top: 20vh;
+    left: 38.5vw;
+
+    border-radius: 5%;
+    box-shadow: 0 0 0 1px #cc8c38;
+}
+
+#title {
+    font-size: 24px;
+    font-weight: lighter;
+    padding: 8vh 1vw;
+}
+
+.credential {
+    width: 70%;
+    width:min-content;
+    font-size: 20px;
+    
+    padding: 8px 16px;
+    border: none;
+
+    background-color: #e6e0d6d2;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px #cc8c38;
+    margin: 1vh auto;
+}
+.credential:focus-visible {
+    outline: none;
+}
+.credential:hover {
+    box-shadow: 0 0 6px 1px #cc8c38;
+}
+.credential:focus {
+    box-shadow: 0 0 0 2px #cc8c38;
+}
+
+#submit {
+    width: 70%;
+    width:min-content;
+    font-size: 20px;
+    
+    padding: 8px 16px;
+    border: none;
+
+    background-color: #e6e0d6d2;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px #cc8c38;
+    margin: 1vh auto;
+}
+#submit:hover {
+    background-color: #cc8c38;
+    color: white;
+    cursor: pointer;
+}
+
+#error {
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 1vh auto;
+}
+
+#forgot {
+    color: blue;
+
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    bottom: 6%;
+    font-size: 12px;
+    text-decoration: underline;
+}
+#forgot > * {
+    width: fit-content;
+    margin: auto;
+}
+#forgot > *:hover {
+    cursor: pointer;
+}
