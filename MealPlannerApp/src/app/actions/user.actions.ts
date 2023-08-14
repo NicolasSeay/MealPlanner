@@ -26,12 +26,11 @@ export const logout = createAction(
 
 export const register = createAction(
     'User Registration',
-    props<{ firstName: string, lastName: string, username: string, password: string }>()
+    props<{ firstname: string, lastname: string, username: string, password: string }>()
 )
 
 export const registerSuccess = createAction(
-    'User Registration Success',
-    props<{ user: User }>()
+    'User Registration Success'
 )
 
 export const registerError = createAction(

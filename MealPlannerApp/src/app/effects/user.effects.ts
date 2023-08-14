@@ -2,7 +2,7 @@ import { UserService } from "../services/user.service";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, of, switchMap } from "rxjs";
 import { Injectable } from "@angular/core";
-import { login, loginError, loginInvalidCredentials, loginSuccess } from "../actions/user.actions";
+import { login, loginError, loginInvalidCredentials, loginSuccess, register, registerError, registerSuccess } from "../actions/user.actions";
 import { Logger } from "../app.logger";
 import { Router } from "@angular/router";
 
@@ -35,13 +35,13 @@ export class UserEffects {
         )
     )
 
-    // register$ = createEffect(() =>
-    //     this.actions$.pipe(
-    //         ofType(login),
-    //         switchMap((actions) => this.userService.login(actions.username, actions.password).pipe(
-    //             map(user => loginSuccess({user})),
-    //             catchError(() => of(loginError()))
-    //         )
-    //     ))
-    // )
+    register$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(register),
+            switchMap((actions) => this.userService.register(actions.firstname, actions.lastname, actions.username, actions.password).pipe(
+                map(() => registerSuccess()),
+                catchError(() => of(registerError()))
+            )
+        ))
+    )
 }
