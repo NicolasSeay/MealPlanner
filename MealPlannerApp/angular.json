@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "MealPlannerV2": {
+    "MealPlanner": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:class": {
@@ -86,10 +86,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "MealPlannerV2:build:production"
+              "browserTarget": "MealPlanner:build:production"
             },
             "development": {
-              "browserTarget": "MealPlannerV2:build:development"
+              "browserTarget": "MealPlanner:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -97,7 +97,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "MealPlannerV2:build"
+            "browserTarget": "MealPlanner:build"
           }
         },
         "test": {
