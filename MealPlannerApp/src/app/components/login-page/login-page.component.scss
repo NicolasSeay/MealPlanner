@@ -1,5 +1,4 @@
 
-
 .image {
     width: 100%;
     height: 100vh;
@@ -9,21 +8,18 @@
 }
 
 #wrapper {
-    // background-color: #fffcf6d5;
     background-color: #ecebe7d2;
     height: 60vh;
     width: 23vw;
     min-height: 400px;
     min-width: 300px;
 
-    // border-radius: 10px;
-
     text-align: center;
     position: absolute;
     top: 20vh;
     left: 38.5vw;
 
-    border-radius: 2px;
+    border-radius: 5%;
     box-shadow: 0 0 0 1px #cc8c38;
 }
 
@@ -32,15 +28,6 @@
     font-weight: lighter;
     padding: 8vh 1vw;
 }
-
-// #input > * {
-//     // width: 70%;
-//     width:min-content;
-//     font-size: 20px;
-    
-//     padding: 8px 16px;
-//     border: none;
-// }
 
 .credential {
     width: 70%;
@@ -88,10 +75,10 @@
     color: red;
     font-size: 14px;
     font-weight: bold;
+    margin: 1vh auto;
 }
 
 #forgot {
-    // color: #cc8c38;
     color: blue;
 
     position: absolute;
