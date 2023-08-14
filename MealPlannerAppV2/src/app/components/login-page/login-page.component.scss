@@ -9,85 +9,102 @@
 }
 
 #wrapper {
-    background-color: #fffcf6d5;
+    // background-color: #fffcf6d5;
+    background-color: #e6e0d6d2;
     height: 60vh;
     width: 25vw;
     min-height: 400px;
     min-width: 300px;
 
-    border-radius: 10px;
+    // border-radius: 10px;
 
     text-align: center;
     position: absolute;
     top: 20vh;
     left: 37.5vw;
-}
 
-.center {
-    display: block;
-    margin: 0 auto;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px #cc8c38;
 }
 
 #title {
     font-size: 24px;
     font-weight: lighter;
-    padding: 8vh 0;
+    padding: 8vh 1vw;
 }
 
-#message {
-    font-size: 16px;
-    // padding: 20px 4%;
-    font-weight: bold;
-}
+// #input > * {
+//     // width: 70%;
+//     width:min-content;
+//     font-size: 20px;
+    
+//     padding: 8px 16px;
+//     border: none;
+// }
 
-#input > * {
+.credential {
     width: 70%;
+    width:min-content;
     font-size: 20px;
     
     padding: 8px 16px;
     border: none;
-}
 
-.textbox {
-    background-color: #fffcf600;
+    background-color: #e6e0d6d2;
     border-radius: 2px;
     box-shadow: 0 0 0 1px #cc8c38;
-    margin: 2vh auto;
+    margin: 1vh auto;
 }
-.textbox:focus-visible {
+.credential:focus-visible {
     outline: none;
 }
-.textbox:hover {
+.credential:hover {
     box-shadow: 0 0 6px 1px #cc8c38;
 }
-.textbox:focus {
+.credential:focus {
     box-shadow: 0 0 0 2px #cc8c38;
 }
 
 #submit {
+    width: 70%;
+    width:min-content;
+    font-size: 20px;
+    
+    padding: 8px 16px;
+    border: none;
+
+    background-color: #e6e0d6d2;
+    border-radius: 2px;
     box-shadow: 0 0 0 1px #cc8c38;
-    color: #cc8c38;
-    border-radius: 8px;
-    margin: 8vh auto;
+    margin: 1vh auto;
 }
 #submit:hover {
     background-color: #cc8c38;
-    // color: #e0dedc;
     color: white;
     cursor: pointer;
 }
 
 #error {
     color: red;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 #forgot {
-    color: #cc8c38;
+    // color: #cc8c38;
+    color: blue;
 
     position: absolute;
     width: 100%;
     margin: 0 auto;
     bottom: 6%;
     font-size: 12px;
+    text-decoration: underline;
+}
+#forgot > * {
+    width: fit-content;
+    margin: auto;
+}
+#forgot > *:hover {
+    cursor: pointer;
 }
