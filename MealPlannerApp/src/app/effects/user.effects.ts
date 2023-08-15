@@ -2,7 +2,7 @@ import { UserService } from "../services/user.service";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, of, switchMap } from "rxjs";
 import { Injectable } from "@angular/core";
-import { login, loginError, loginInvalidCredentials, loginSuccess, register, registerError } from "../actions/user.actions";
+import { login, loginError, loginSuccess, register, registerError } from "../actions/user.actions";
 import { Logger } from "../app.logger";
 import { Router } from "@angular/router";
 
@@ -19,7 +19,7 @@ export class UserEffects {
                     map(user => {
                         if(user == null) {
                             this.logger.info("[UserEffects] No matching user credentials")
-                            return loginInvalidCredentials()
+                            return loginError()
                         }
 
                         this.logger.debug("[UserEffects] Success on login " + user.id)
@@ -29,7 +29,7 @@ export class UserEffects {
                         sessionStorage.setItem('userId', user.id.toString())
                         return loginSuccess({ user })
                     }),
-                    catchError((e) => {
+                    catchError(() => {
                         this.logger.debug("[UserEffects] Error on login")
                         return of(loginError())
                     })
@@ -43,9 +43,13 @@ export class UserEffects {
             ofType(register),
             switchMap((actions) => this.userService.register(actions.firstname, actions.lastname, actions.username, actions.password).pipe(
                 map(() => {
+                    this.logger.info("[UserEffects] Successfully registered, attempting to login")
                     return login({ username: actions.username, password: actions.password})
                 }),
-                catchError(() => of(registerError()))
+                catchError(() => {
+                    this.logger.info("[UserEffects] Unable to register user")
+                    return of(registerError())
+                })
             )
         ))
     )

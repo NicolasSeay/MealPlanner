@@ -9,7 +9,6 @@ import { Logger } from '../app.logger';
 })
 export class UserService {
   
-
   baseUrl = "http://localhost:8080/user"
 
   constructor(private http: HttpClient, private logger: Logger) { }

@@ -17,7 +17,7 @@ import { Logger } from './app.logger';
 import { RecipeEffects } from './effects/recipe.effects';
 import { userReducer } from './reducers/user.reducer';
 import { recipeReducer } from './reducers/recipe.reducer';
-import { registerErrorReducer } from './reducers/error.reducer';
+import { loginErrorReducer, registerErrorReducer } from './reducers/error.reducer';
 
 @NgModule({
   declarations: [
@@ -35,6 +35,7 @@ import { registerErrorReducer } from './reducers/error.reducer';
     StoreModule.forRoot({
       'user': userReducer,
       'recipe': recipeReducer,
+      'loginError': loginErrorReducer,
       'registerError': registerErrorReducer
     }, {}),
     StoreRouterConnectingModule.forRoot(),

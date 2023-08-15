@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store"
 import { Recipe } from "../models/recipe"
-import { viewRecipes, viewRecipesSuccess } from "../actions/recipe.actions"
+import { viewRecipesSuccess } from "../actions/recipe.actions"
 import { logout } from "../actions/user.actions"
 
 export type RecipesState = Recipe[]

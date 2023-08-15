@@ -1,16 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { UserState } from './reducers/user.reducer';
-import { selectUserId } from './app.selectors';
+import { Router, CanActivate } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
-    constructor(private router: Router, private store: Store<UserState>) {}
+    constructor(private router: Router) {}
 
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    canActivate() {
         const userId = sessionStorage.getItem('userId')
-        if (userId != null && parseInt(userId) > 0) {
+        if (userId != null && parseInt(userId) != -1) {
             // authorised so return true
             return true
         }

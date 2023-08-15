@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { login, register, registerCancel } from 'src/app/actions/user.actions';
 import { Logger } from 'src/app/app.logger';
-import { selectRegisterError, selectUser, selectUserId } from 'src/app/app.selectors';
+import { selectLoginError, selectRegisterError, selectUser } from 'src/app/app.selectors';
 import { UserState } from 'src/app/reducers/user.reducer';
 
 @Component({
@@ -15,7 +15,7 @@ import { UserState } from 'src/app/reducers/user.reducer';
 export class LoginPageComponent implements OnInit {
 
   user$: Observable<UserState>
-  userId$: Observable<number>
+  loginError$: Observable<string>
   registerError$: Observable<string>
   loginForm!: FormGroup
   registerForm!: FormGroup
@@ -25,7 +25,7 @@ export class LoginPageComponent implements OnInit {
 
   constructor(private store: Store, private formBuilder: FormBuilder, private logger: Logger) {
     this.user$ = this.store.select(selectUser)
-    this.userId$ = this.store.select(selectUserId)
+    this.loginError$ = this.store.select(selectLoginError)
     this.registerError$ = this.store.select(selectRegisterError)
   }
 
@@ -76,7 +76,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   alertMe() {
-    this.store.select(selectUserId).subscribe(userId => alert("ha ha " + userId))
+    alert("Ha ha!")
   }
 
 }

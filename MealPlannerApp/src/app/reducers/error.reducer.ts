@@ -1,18 +1,33 @@
 import { createReducer, on } from "@ngrx/store";
-import { login, register, registerCancel, registerError } from "../actions/user.actions";
-import { RegisterError } from "../models/registerError";
+import { login, loginError, register, registerCancel, registerError } from "../actions/user.actions";
+import { Error } from "../models/error";
 
 
-export type RegisterErrorState = RegisterError
+export type LoginErrorState = Error
+
+export const initialLoginErrorState: LoginErrorState = {
+    message: ''
+}
+
+export const loginErrorReducer = createReducer(
+    initialLoginErrorState,
+    on(loginError, () => { return { message: 'Invalid username or password' }}),
+    on(login, () => initialLoginErrorState),
+    on(register, () => initialLoginErrorState),
+    on(registerCancel, () => initialLoginErrorState),
+)
+
+
+export type RegisterErrorState = Error
 
 export const initialRegisterErrorState: RegisterErrorState = {
-    registerError: ''
+    message: ''
 }
 
 export const registerErrorReducer = createReducer(
     initialRegisterErrorState,
-    on(registerError, () => { return { registerError: 'Registration error' }}),
+    on(registerError, () => { return { message: 'Registration error' }}),
     on(login, () => initialRegisterErrorState),
     on(register, () => initialRegisterErrorState),
-    on(registerCancel, () => initialRegisterErrorState)
+    on(registerCancel, () => initialRegisterErrorState),
 )
