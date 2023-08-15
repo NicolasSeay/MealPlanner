@@ -7,8 +7,8 @@ DROP TABLE IF EXISTS user;
 
 CREATE TABLE user (
 	id BIGINT PRIMARY KEY AUTO_INCREMENT,
-	first_name VARCHAR(32) NOT NULL,
-    last_name VARCHAR(32),
+	firstname VARCHAR(32) NOT NULL,
+    lastname VARCHAR(32),
 	username VARCHAR(32) NOT NULL,
     password VARCHAR(32) NOT NULL
 );

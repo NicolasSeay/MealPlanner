@@ -19,7 +19,7 @@ public class Ingredient implements Serializable {
 	private Long id;
 	
 	@Id
-	private Long recipe_id;
+	private Long recipeId;
 	
 	private String name;
 	

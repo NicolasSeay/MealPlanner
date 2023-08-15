@@ -5,6 +5,7 @@ import { Injectable } from "@angular/core";
 import { login, loginError, loginSuccess, register, registerError } from "../actions/user.actions";
 import { Logger } from "../app.logger";
 import { Router } from "@angular/router";
+import { User } from "../models/user";
 
 @Injectable()
 export class UserEffects {
@@ -16,17 +17,22 @@ export class UserEffects {
             ofType(login),
             switchMap((actions) => {
                 return this.userService.login(actions.username, actions.password).pipe(
-                    map(user => {
-                        if(user == null) {
+                    map(response => {
+                        if(response == null || response.body == null) {
                             this.logger.info("[UserEffects] No matching user credentials")
                             return loginError()
                         }
 
-                        this.logger.debug("[UserEffects] Success on login " + user.id)
+                        const headers = response.headers
+                        console.log(headers.keys())
+                        const user: User = response.body as User
+                        
+                        this.logger.debug("[UserEffects] Success on login " + response.body)
                         this.router.navigate(['/home/' + user.id])
                         this.logger.info("[UserEffects] Navigating to /home/" + user.id)
 
                         sessionStorage.setItem('userId', user.id.toString())
+                        console.log(user)
                         return loginSuccess({ user })
                     }),
                     catchError(() => {
