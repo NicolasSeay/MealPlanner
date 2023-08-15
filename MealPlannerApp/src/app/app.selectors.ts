@@ -1,6 +1,7 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { UserState } from "./reducers/user.reducer";
 import { RecipesState } from "./reducers/recipe.reducer";
+import { RegisterErrorState } from "./reducers/error.reducer";
 
 // User selectors
 export const selectUserStateFeature =
@@ -14,6 +15,16 @@ export const selectUser = createSelector(
 export const selectUserId = createSelector(
     selectUserStateFeature,
     (user: UserState) => user.id
+)
+
+
+// Error selectors
+export const selectRegisterErrorStateFeature =
+  createFeatureSelector<RegisterErrorState>('registerError');
+
+export const selectRegisterError = createSelector(
+  selectRegisterErrorStateFeature,
+  (e: RegisterErrorState) => e.registerError
 )
 
 

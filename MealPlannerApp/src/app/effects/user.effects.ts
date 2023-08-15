@@ -2,7 +2,7 @@ import { UserService } from "../services/user.service";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, of, switchMap } from "rxjs";
 import { Injectable } from "@angular/core";
-import { login, loginError, loginInvalidCredentials, loginSuccess, register, registerError, registerSuccess } from "../actions/user.actions";
+import { login, loginError, loginInvalidCredentials, loginSuccess, register, registerError } from "../actions/user.actions";
 import { Logger } from "../app.logger";
 import { Router } from "@angular/router";
 
@@ -21,9 +21,12 @@ export class UserEffects {
                             this.logger.info("[UserEffects] No matching user credentials")
                             return loginInvalidCredentials()
                         }
+
                         this.logger.debug("[UserEffects] Success on login " + user.id)
                         this.router.navigate(['/home/' + user.id])
                         this.logger.info("[UserEffects] Navigating to /home/" + user.id)
+
+                        sessionStorage.setItem('userId', user.id.toString())
                         return loginSuccess({ user })
                     }),
                     catchError((e) => {
@@ -39,7 +42,9 @@ export class UserEffects {
         this.actions$.pipe(
             ofType(register),
             switchMap((actions) => this.userService.register(actions.firstname, actions.lastname, actions.username, actions.password).pipe(
-                map(() => registerSuccess()),
+                map(() => {
+                    return login({ username: actions.username, password: actions.password})
+                }),
                 catchError(() => of(registerError()))
             )
         ))

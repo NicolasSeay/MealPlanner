@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { login, register } from 'src/app/actions/user.actions';
+import { login, register, registerCancel } from 'src/app/actions/user.actions';
 import { Logger } from 'src/app/app.logger';
-import { selectUser, selectUserId } from 'src/app/app.selectors';
+import { selectRegisterError, selectUser, selectUserId } from 'src/app/app.selectors';
 import { UserState } from 'src/app/reducers/user.reducer';
 
 @Component({
@@ -16,6 +16,7 @@ export class LoginPageComponent implements OnInit {
 
   user$: Observable<UserState>
   userId$: Observable<number>
+  registerError$: Observable<string>
   loginForm!: FormGroup
   registerForm!: FormGroup
   loading = false
@@ -25,6 +26,7 @@ export class LoginPageComponent implements OnInit {
   constructor(private store: Store, private formBuilder: FormBuilder, private logger: Logger) {
     this.user$ = this.store.select(selectUser)
     this.userId$ = this.store.select(selectUserId)
+    this.registerError$ = this.store.select(selectRegisterError)
   }
 
   ngOnInit(): void {
@@ -57,6 +59,7 @@ export class LoginPageComponent implements OnInit {
 
   cancelRegistration() {
     this.isRegistering = false
+    this.store.dispatch(registerCancel())
   }
 
   doRegister() {

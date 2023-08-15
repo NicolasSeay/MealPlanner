@@ -29,10 +29,10 @@ export const register = createAction(
     props<{ firstname: string, lastname: string, username: string, password: string }>()
 )
 
-export const registerSuccess = createAction(
-    'User Registration Success'
-)
-
 export const registerError = createAction(
     'User Registration Error'
+)
+
+export const registerCancel = createAction(
+    'User Registration Cancel'
 )

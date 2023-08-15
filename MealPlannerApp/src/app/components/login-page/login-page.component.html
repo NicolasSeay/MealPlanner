@@ -13,6 +13,9 @@
         <button class="btn btn-primary button">Login</button>
 
         <div id="error" *ngIf="(userId$ | async) == 0">Invalid username or password</div>
+        <div id="error" *ngIf="(registerError$ | async) != ''">Registration error</div>
+
+
         <div id="forgot">
             <span (click)="beginRegistration()">Register</span>
              | 

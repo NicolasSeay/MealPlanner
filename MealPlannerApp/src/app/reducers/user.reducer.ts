@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { User } from "../models/user";
-import { loginInvalidCredentials, loginSuccess, logout, register, registerError, registerSuccess } from "../actions/user.actions";
+import { loginInvalidCredentials, loginSuccess, logout, registerError } from "../actions/user.actions";
 
 
 export type UserState = User
@@ -21,6 +21,6 @@ export const userReducer = createReducer(
     initialUserState,
     on(loginSuccess, (user) => user),
     on(loginInvalidCredentials, () => invalidCredentialsUserState),
-    on(register, () => initialUserState),
+    on(registerError, () => initialUserState),
     on(logout, () => initialUserState)
 )

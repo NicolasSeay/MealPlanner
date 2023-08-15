@@ -17,6 +17,7 @@ import { Logger } from './app.logger';
 import { RecipeEffects } from './effects/recipe.effects';
 import { userReducer } from './reducers/user.reducer';
 import { recipeReducer } from './reducers/recipe.reducer';
+import { registerErrorReducer } from './reducers/error.reducer';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { recipeReducer } from './reducers/recipe.reducer';
     ReactiveFormsModule,
     StoreModule.forRoot({
       'user': userReducer,
-      'recipe': recipeReducer
+      'recipe': recipeReducer,
+      'registerError': registerErrorReducer
     }, {}),
     StoreRouterConnectingModule.forRoot(),
     EffectsModule.forRoot([UserEffects, RecipeEffects]),
