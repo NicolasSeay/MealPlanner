@@ -16,10 +16,10 @@
         <div id="error" *ngIf="(registerError$ | async) != ''">{{ registerError$ | async }}</div>
 
 
-        <div id="forgot">
-            <span (click)="beginRegistration(); loginForm.reset()">Register</span>
-             | 
-            <span (click)="alertMe()">Forgot password?</span>
+        <div id="formFooter">
+            <a (click)="beginRegistration(); loginForm.reset()">Register</a>
+            <span> | </span>
+            <a (click)="alertMe()">Forgot password?</a>
         </div>
     </form>
 

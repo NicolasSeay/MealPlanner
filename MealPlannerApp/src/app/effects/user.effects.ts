@@ -31,8 +31,12 @@ export class UserEffects {
                         this.router.navigate(['/home/' + user.id])
                         this.logger.info("[UserEffects] Navigating to /home/" + user.id)
 
+                        let jwt = response.headers.get('Authorization')
+                        if (jwt == null) {
+                            return loginError()
+                        }
                         sessionStorage.setItem('userId', user.id.toString())
-                        console.log(user)
+                        localStorage.setItem('Authorization', jwt)
                         return loginSuccess({ user })
                     }),
                     catchError(() => {
