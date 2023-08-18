@@ -23,16 +23,18 @@ export class UserEffects {
                             return loginError()
                         }
 
-                        const headers = response.headers
-                        console.log(headers.keys())
                         const user: User = response.body as User
-                        
+                
                         this.logger.debug("[UserEffects] Success on login " + response.body)
                         this.router.navigate(['/home/' + user.id])
                         this.logger.info("[UserEffects] Navigating to /home/" + user.id)
 
+                        let jwt = response.headers.get('Authorization')
+                        if (jwt == null) {
+                            return loginError()
+                        }
                         sessionStorage.setItem('userId', user.id.toString())
-                        console.log(user)
+                        localStorage.setItem('Authorization', jwt)
                         return loginSuccess({ user })
                     }),
                     catchError(() => {

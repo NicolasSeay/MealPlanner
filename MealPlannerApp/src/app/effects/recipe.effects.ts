@@ -5,6 +5,7 @@ import { Logger } from "../app.logger";
 import { Router } from "@angular/router";
 import { viewRecipes, viewRecipesError, viewRecipesSuccess } from "../actions/recipe.actions";
 import { RecipeService } from "../services/recipe.service";
+import { Recipe } from "../models/recipe";
 
 @Injectable()
 export class RecipeEffects {
@@ -18,7 +19,8 @@ export class RecipeEffects {
                 return this.recipeService.recipes(actions.id).pipe(
                     map(recipes => {
                         this.logger.debug("[RecipeEffects] Success on view recipes")
-                        this.logger.info("[RecipeEffects] Recipe list from service: " + recipes)
+                        // this.logger.info("[RecipeEffects] Recipe list from service:")
+                        console.log(recipes)
                         return viewRecipesSuccess({ recipes })
                     }),
                     catchError((e) => {

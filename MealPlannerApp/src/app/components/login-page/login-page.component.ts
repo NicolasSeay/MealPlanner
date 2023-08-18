@@ -4,8 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { login, register, registerCancel } from 'src/app/actions/user.actions';
 import { Logger } from 'src/app/app.logger';
-import { selectLoginError, selectRegisterError, selectUser } from 'src/app/app.selectors';
-import { UserState } from 'src/app/reducers/user.reducer';
+import { selectLoginError, selectRegisterError } from 'src/app/app.selectors';
 
 @Component({
   selector: 'app-login-page',
@@ -14,7 +13,7 @@ import { UserState } from 'src/app/reducers/user.reducer';
 })
 export class LoginPageComponent implements OnInit {
 
-  user$: Observable<UserState>
+  // user$: Observable<UserState>
   loginError$: Observable<string>
   registerError$: Observable<string>
   loginForm!: FormGroup
@@ -24,7 +23,7 @@ export class LoginPageComponent implements OnInit {
   isRegistering = false
 
   constructor(private store: Store, private formBuilder: FormBuilder, private logger: Logger) {
-    this.user$ = this.store.select(selectUser)
+    // this.user$ = this.store.select(selectUser)
     this.loginError$ = this.store.select(selectLoginError)
     this.registerError$ = this.store.select(selectRegisterError)
   }

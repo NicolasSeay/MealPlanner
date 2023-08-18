@@ -1,3 +1,28 @@
-<p>home-page works!</p>
-Recipe List: {{ recipes }}
-Current User: {{ userId }}
+
+<p>Current User: {{ userId }}</p>
+<p>Recipe List: {{ recipes$ | async }}</p>
+
+
+<table>
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Recipe ID</th>
+			<th>Name</th>
+		</tr>
+	</thead>
+	<tbody>
+        <tr *ngFor="let recipe of recipes$ | async">
+            <td>recipe.id</td>
+            <td>recipe.userId</td>
+            <td>recipe.name</td>
+        </tr>
+	</tbody>
+</table>
+
+<ul>
+    <li>hi</li>
+    <li *ngFor="let recipe of recipes; index as i">
+      {{ i + 1 }}. {{ recipe.name }}
+    </li>
+  </ul>

@@ -11,13 +11,15 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { UserEffects } from './effects/user.effects';
 import { Logger } from './app.logger';
 import { RecipeEffects } from './effects/recipe.effects';
 import { userReducer } from './reducers/user.reducer';
 import { recipeReducer } from './reducers/recipe.reducer';
 import { loginErrorReducer, registerErrorReducer } from './reducers/error.reducer';
+import { ResponseInterceptor } from './interceptors/responseInterceptor';
+import { RequestInterceptor } from './interceptors/requestInterceptor';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,11 @@ import { loginErrorReducer, registerErrorReducer } from './reducers/error.reduce
     StoreRouterConnectingModule.forRoot(),
     EffectsModule.forRoot([UserEffects, RecipeEffects]),
   ],
-  providers: [Logger],
+  providers: [
+    Logger,
+    { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ResponseInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

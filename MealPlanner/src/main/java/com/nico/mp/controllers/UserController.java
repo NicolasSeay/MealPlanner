@@ -1,6 +1,6 @@
 package com.nico.mp.controllers;
 
-import com.nico.mp.util.JwtUtil;
+import com.nico.mp.util.JWTUtil;
 import com.nico.mp.domain.LoginRequest;
 import com.nico.mp.domain.UserNoCredentials;
 import com.nico.mp.services.UserService;
@@ -21,7 +21,7 @@ public class UserController {
 	private UserService userService;
 
 	@Autowired
-	private JwtUtil jwtUtil;
+	private JWTUtil jwtUtil;
 	
 	@PostMapping("/login")
 	public ResponseEntity<UserNoCredentials> login(@RequestBody LoginRequest loginRequest) {
@@ -34,8 +34,9 @@ public class UserController {
 		} else {
 			log.info("Login - user found: {}", user.getId());
 			log.info("Login - generating/refreshing JWT");
+
 			HttpHeaders headers = new HttpHeaders();
-			headers.set("Access-Control-Allow-Credentials", "Authorization");
+			headers.set("Access-Control-Expose-Headers", "Authorization");
 			headers.set("Authorization", jwtUtil.generateToken(user));
 			return ResponseEntity.ok()
 					.headers(headers)
