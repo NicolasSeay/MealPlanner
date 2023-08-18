@@ -2,6 +2,7 @@ package com.nico.mp.controllers;
 
 import com.nico.mp.domain.Recipe;
 import com.nico.mp.services.RecipeService;
+import com.nico.mp.util.JWTUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,28 +19,22 @@ public class RecipeController {
 	
 	@Autowired
 	private RecipeService recipeService;
-	
-	@GetMapping
-	public ResponseEntity<List<Recipe>> recipes(@RequestParam long userId) {
-		log.info("Recipes - received recipe list request");
-		List<Recipe> recipes = recipeService.getAllRecipes(userId);
 
+	@Autowired
+	private JWTUtil jwtUtil;
+	
+	@GetMapping("/{userId}")
+	public ResponseEntity<List<Recipe>> recipes(@PathVariable long userId) {
+		List<Recipe> recipes = recipeService.getAllRecipes(userId);
 		log.info("Recipes - recipe list size: {}", recipes.size());
-		if (recipes.size() > 0) {
-			log.info("Recipes - recipe list items:");
-			recipes.forEach(r ->
-					log.info("{}", r)
-			);
-			log.info("Recipes - end of recipe list");
-		}
+
 		return recipes.isEmpty()
-			? new ResponseEntity<List<Recipe>>(HttpStatus.NO_CONTENT)
-			: new ResponseEntity<List<Recipe>>(recipes, HttpStatus.OK);
+			? new ResponseEntity<>(HttpStatus.NO_CONTENT)
+			: new ResponseEntity<>(recipes, HttpStatus.OK);
 	}
 	
 	@PostMapping("/add")
 	public ResponseEntity<Void> addRecipe(@RequestBody Recipe recipe) {
-		log.info("AddRecipe - received addRecipe request");
 		try {
 			recipeService.saveRecipe(recipe);
 		} catch (Exception e) {
@@ -49,10 +44,9 @@ public class RecipeController {
 		log.debug("AddRecipe - recipe added/updated");
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-	
-	@DeleteMapping("/remove")
-	public ResponseEntity<Void> deleteRecipe(@RequestParam long recipeId) {
-		log.info("DeleteRecipe - received deleteRecipe request");
+
+	@DeleteMapping("/remove/{userId}/recipe/{recipeId}")
+	public ResponseEntity<Void> deleteRecipe(@PathVariable long userId, @PathVariable long recipeId) {
 		try {
 			recipeService.deleteRecipe(recipeId);
 		} catch (Exception e) {

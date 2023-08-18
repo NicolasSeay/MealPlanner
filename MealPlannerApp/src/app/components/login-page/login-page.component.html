@@ -12,11 +12,14 @@
         
         <button class="btn btn-primary button">Login</button>
 
-        <div id="error" *ngIf="(userId$ | async) == 0">Invalid username or password</div>
-        <div id="forgot">
-            <span (click)="beginRegistration()">Register</span>
-             | 
-            <span (click)="alertMe()">Forgot password?</span>
+        <div id="error" *ngIf="(loginError$ | async) != ''">{{ loginError$ | async }}</div>
+        <div id="error" *ngIf="(registerError$ | async) != ''">{{ registerError$ | async }}</div>
+
+
+        <div id="formFooter">
+            <a (click)="beginRegistration(); loginForm.reset()">Register</a>
+            <span> | </span>
+            <a (click)="alertMe()">Forgot password?</a>
         </div>
     </form>
 

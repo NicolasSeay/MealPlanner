@@ -9,7 +9,6 @@ import { Logger } from '../app.logger';
 })
 export class UserService {
   
-
   baseUrl = "http://localhost:8080/user"
 
   constructor(private http: HttpClient, private logger: Logger) { }
@@ -20,11 +19,12 @@ export class UserService {
       username,
       password
     }
-    return this.http.post<User>(
+    return this.http.post(
       this.baseUrl + "/login",
       loginRequest,
       {
-        headers: {'content-type':'application/json'}
+        headers: {'content-type':'application/json'},
+        observe: 'response'
       }
     )
   }

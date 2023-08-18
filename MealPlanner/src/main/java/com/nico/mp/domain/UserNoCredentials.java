@@ -16,7 +16,7 @@ public class UserNoCredentials {
     @Id
     private long id;
 
-    private String firstName;
+    private String firstname;
 
-    private String lastName;
+    private String lastname;
 }

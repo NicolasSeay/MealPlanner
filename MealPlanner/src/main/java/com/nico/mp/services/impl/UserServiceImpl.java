@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
 		}
 
 		UserNoCredentials u = user.get();
-		return new UserNoCredentials(u.getId(), u.getFirstName(), u.getLastName());
+		return new UserNoCredentials(u.getId(), u.getFirstname(), u.getLastname());
 	}
 
 }

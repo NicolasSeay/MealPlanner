@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface RecipeRepository extends CrudRepository<Recipe, Long> {
 
-	@Query("SELECT r FROM Recipe r WHERE r.user_id=?1")
+	@Query("SELECT r FROM Recipe r WHERE r.userId=?1")
 	List<Recipe> findAllById(long userId);
 
 }
