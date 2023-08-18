@@ -10,8 +10,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    public static final String AUTHORIZATION_HEADER = "Authorization";
-
     @Autowired
     private JWTUtil jwtUtil;
 
@@ -20,6 +18,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         JWTFilter customFilter = new JWTFilter(this.jwtUtil);
         http.addFilterBefore(customFilter, UsernamePasswordAuthenticationFilter.class);
 
-        http.cors();
+        http.csrf().disable().cors();
     }
 }

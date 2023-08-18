@@ -39,9 +39,7 @@ public class IngredientController {
 	}
 	
 	@DeleteMapping("/remove")
-	public ResponseEntity<Void> deleteIngredient(
-		@RequestParam long recipeId,
-		@RequestParam long ingredientId)
+	public ResponseEntity<Void> deleteIngredient(@RequestParam long recipeId, @RequestParam long ingredientId)
 	{
 		try {
 			ingredientService.deleteIngredient(recipeId, ingredientId);

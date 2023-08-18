@@ -23,10 +23,8 @@ export class UserEffects {
                             return loginError()
                         }
 
-                        const headers = response.headers
-                        console.log(headers.keys())
                         const user: User = response.body as User
-                        
+                
                         this.logger.debug("[UserEffects] Success on login " + response.body)
                         this.router.navigate(['/home/' + user.id])
                         this.logger.info("[UserEffects] Navigating to /home/" + user.id)

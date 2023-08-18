@@ -24,9 +24,7 @@ public class RecipeController {
 	private JWTUtil jwtUtil;
 	
 	@GetMapping("/{userId}")
-	public ResponseEntity<List<Recipe>> recipes(
-			@PathVariable long userId
-	) {
+	public ResponseEntity<List<Recipe>> recipes(@PathVariable long userId) {
 		List<Recipe> recipes = recipeService.getAllRecipes(userId);
 		log.info("Recipes - recipe list size: {}", recipes.size());
 

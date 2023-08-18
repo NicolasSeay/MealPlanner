@@ -5,16 +5,15 @@ import { Observable, map } from "rxjs";
 @Injectable()
 export class RequestInterceptor implements HttpInterceptor {
 
-    intercept(res: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        return next.handle(res).pipe(map((event: HttpEvent<any>) => {
-            if (event instanceof HttpRequest && !event.url.includes("/user/login")) {
-                let token = localStorage.getItem('Authorization')
-                if (token != null) {
-                    event.headers.append('Authorization', token)
-                }
+    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        if (req instanceof HttpRequest && !req.url.includes("/user/login")) {
+            let token = localStorage.getItem('Authorization')
+            if (token != null) {
+                return next.handle(req.clone({ setHeaders: { Authorization: token } }));
             }
-            return event;
-        }));
+        }
+        return next.handle(req)
     }
+    
     
 }

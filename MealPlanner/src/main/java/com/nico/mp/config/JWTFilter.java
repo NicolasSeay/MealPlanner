@@ -1,5 +1,6 @@
 package com.nico.mp.config;
 
+import com.nico.mp.constants.Constants;
 import com.nico.mp.util.JWTUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -27,13 +28,7 @@ public class JWTFilter extends OncePerRequestFilter {
     @Override
     public void doFilterInternal(HttpServletRequest servletRequest, HttpServletResponse servletResponse, FilterChain filterChain) {
         try {
-            String jwt = jwtUtil.validateToken(servletRequest.getHeader(SecurityConfig.AUTHORIZATION_HEADER));
-            if (jwt == null) {
-                servletResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            } else {
-                servletResponse.setHeader("Access-Control-Expose-Headers", SecurityConfig.AUTHORIZATION_HEADER);
-                servletResponse.setHeader(SecurityConfig.AUTHORIZATION_HEADER, jwt);
-            }
+            jwtUtil.validateToken(servletRequest.getHeader(Constants.AUTHORIZATION_HEADER));
             filterChain.doFilter(servletRequest, servletResponse);
         } catch (Exception e) {
             log.error("Unable to validate JWT", e);

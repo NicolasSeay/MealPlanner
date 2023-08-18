@@ -25,7 +25,7 @@ public class JWTUtil implements Serializable {
 
     public String generateToken(UserNoCredentials user) {
         Map<String, Object> claims = new HashMap<>();
-        return Jwts.builder()
+        return "Bearer " + Jwts.builder()
                 .setClaims(claims)
                 .setSubject(String.valueOf(user.getId()))
                 .setIssuedAt(new Date(System.currentTimeMillis()))
