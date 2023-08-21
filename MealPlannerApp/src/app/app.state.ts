@@ -3,8 +3,8 @@ import { RecipesState } from "./reducers/recipe.reducer";
 import { UserState } from "./reducers/user.reducer";
 
 export type AppState = {
-    userState: UserState,
-    recipesState: RecipesState,
-    loginErrorState: LoginErrorState,
-    registerErrorState: RegisterErrorState
+    user: UserState,
+    recipes: RecipesState,
+    loginError: LoginErrorState,
+    registerError: RegisterErrorState
 }

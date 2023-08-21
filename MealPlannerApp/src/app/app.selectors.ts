@@ -15,7 +15,7 @@ export const selectUser = createSelector(
 
 // Recipe selectors
 export const selectRecipeStateFeature =
-  createFeatureSelector<RecipesState>('recipe');
+  createFeatureSelector<RecipesState>('recipes');
 
 export const selectRecipes = createSelector(
     selectRecipeStateFeature,

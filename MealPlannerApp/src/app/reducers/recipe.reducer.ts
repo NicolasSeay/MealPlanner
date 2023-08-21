@@ -5,10 +5,10 @@ import { logout } from "../actions/user.actions"
 
 export type RecipesState = Recipe[]
 
-export const initialRecipeState: RecipesState = []
+export const initialRecipeState: Recipe[] = []
 
 export const recipeReducer = createReducer(
     initialRecipeState,
-    on(viewRecipesSuccess, (recipes) => recipes),
+    on(viewRecipesSuccess, (_, action) => action.recipes),
     on(logout, () => initialRecipeState)
 )

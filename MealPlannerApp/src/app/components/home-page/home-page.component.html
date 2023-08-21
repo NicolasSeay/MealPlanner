@@ -1,7 +1,5 @@
 
 <p>Current User: {{ userId }}</p>
-<p>Recipe List: {{ recipes$ | async }}</p>
-
 
 <table>
 	<thead>
@@ -13,16 +11,9 @@
 	</thead>
 	<tbody>
         <tr *ngFor="let recipe of recipes$ | async">
-            <td>recipe.id</td>
-            <td>recipe.userId</td>
-            <td>recipe.name</td>
+            <td>{{ recipe.id }}</td>
+            <td>{{ recipe.userId }}</td>
+            <td>{{ recipe.name }}</td>
         </tr>
 	</tbody>
 </table>
-
-<ul>
-    <li>hi</li>
-    <li *ngFor="let recipe of recipes; index as i">
-      {{ i + 1 }}. {{ recipe.name }}
-    </li>
-  </ul>

@@ -19,12 +19,11 @@ export class UserService {
       username,
       password
     }
-    return this.http.post(
+    return this.http.post<User>(
       this.baseUrl + "/login",
       loginRequest,
       {
-        headers: {'content-type':'application/json'},
-        observe: 'response'
+        headers: {'content-type':'application/json'}
       }
     )
   }

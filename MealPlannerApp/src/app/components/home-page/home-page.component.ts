@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { viewRecipes } from 'src/app/actions/recipe.actions';
 import { Logger } from 'src/app/app.logger';
@@ -29,10 +29,6 @@ export class HomePageComponent implements OnInit {
 
     // get recipe list from service and saves in store
     this.store.dispatch(viewRecipes({ id: this.userId }))
-    
-    // retrieve recipes from store
-    this.store.pipe(select(selectRecipes)).subscribe(recipes => this.recipes = recipes)
-    console.log(this.recipes[0])
   }
 
 }
