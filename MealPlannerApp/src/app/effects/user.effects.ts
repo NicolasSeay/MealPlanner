@@ -5,7 +5,6 @@ import { Injectable } from "@angular/core";
 import { login, loginError, loginSuccess, register, registerError } from "../actions/user.actions";
 import { Logger } from "../app.logger";
 import { Router } from "@angular/router";
-import { User } from "../models/user";
 import { Store } from "@ngrx/store";
 
 @Injectable()

@@ -4,7 +4,7 @@ import { Recipe } from "../models/recipe";
 
 export const viewRecipes = createAction(
     'View Recipes',
-    props<{ id: number }>()
+    props<{ userId: number }>()
 )
 
 export const viewRecipesSuccess = createAction(

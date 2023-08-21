@@ -13,7 +13,6 @@ import { selectLoginError, selectRegisterError } from 'src/app/app.selectors';
 })
 export class LoginPageComponent implements OnInit {
 
-  // user$: Observable<UserState>
   loginError$: Observable<string>
   registerError$: Observable<string>
   loginForm!: FormGroup
@@ -23,7 +22,6 @@ export class LoginPageComponent implements OnInit {
   isRegistering = false
 
   constructor(private store: Store, private formBuilder: FormBuilder, private logger: Logger) {
-    // this.user$ = this.store.select(selectUser)
     this.loginError$ = this.store.select(selectLoginError)
     this.registerError$ = this.store.select(selectRegisterError)
   }
