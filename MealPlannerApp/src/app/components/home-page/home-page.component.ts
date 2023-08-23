@@ -15,8 +15,8 @@ import { Recipe } from 'src/app/models/recipe';
 })
 export class HomePageComponent implements OnInit {
 
-  userId: number = -1
   recipes$: Observable<Recipe[]>
+  userId: number = -1
   recipes: Recipe[] = []
 
   constructor(private store: Store, private logger: Logger, private _activatedRoute: ActivatedRoute) {
@@ -28,11 +28,7 @@ export class HomePageComponent implements OnInit {
     this.userId = Number(this._activatedRoute.snapshot.paramMap.get("userId"))
 
     // get recipe list from service and saves in store
-    this.store.dispatch(viewRecipes({ id: this.userId }))
-    
-    // retrieve recipes from store
-    this.store.pipe(select(selectRecipes)).subscribe(recipes => this.recipes = recipes)
-    console.log(this.recipes[0])
+    this.store.dispatch(viewRecipes({ userId: this.userId }))
   }
 
 }

@@ -19,13 +19,9 @@ export class UserService {
       username,
       password
     }
-    return this.http.post(
+    return this.http.post<User>(
       this.baseUrl + "/login",
-      loginRequest,
-      {
-        headers: {'content-type':'application/json'},
-        observe: 'response'
-      }
+      loginRequest
     )
   }
 
@@ -39,10 +35,7 @@ export class UserService {
     }
     return this.http.post<boolean>(
       this.baseUrl + "/register",
-      registerRequest,
-      {
-        headers: {'content-type':'application/json'}
-      }
+      registerRequest
     )
   }
 

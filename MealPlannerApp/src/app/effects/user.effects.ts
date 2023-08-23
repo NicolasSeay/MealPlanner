@@ -5,36 +5,30 @@ import { Injectable } from "@angular/core";
 import { login, loginError, loginSuccess, register, registerError } from "../actions/user.actions";
 import { Logger } from "../app.logger";
 import { Router } from "@angular/router";
-import { User } from "../models/user";
+import { Store } from "@ngrx/store";
 
 @Injectable()
 export class UserEffects {
 
-    constructor(private userService: UserService, private actions$: Actions, private logger: Logger, private router: Router) {}
+    constructor(private userService: UserService, private actions$: Actions, private logger: Logger, private router: Router, private store: Store) {}
 
     login$ = createEffect(() =>
         this.actions$.pipe(
             ofType(login),
-            switchMap((actions) => {
-                return this.userService.login(actions.username, actions.password).pipe(
-                    map(response => {
-                        if(response == null || response.body == null) {
+            switchMap((action) => {
+                return this.userService.login(action.username, action.password).pipe(
+                    map(user => {
+                        if(user == null) {
                             this.logger.info("[UserEffects] No matching user credentials")
                             return loginError()
                         }
-
-                        const user: User = response.body as User
                 
-                        this.logger.debug("[UserEffects] Success on login " + response.body)
+                        this.logger.debug("[UserEffects] Success on login ")
                         this.router.navigate(['/home/' + user.id])
                         this.logger.info("[UserEffects] Navigating to /home/" + user.id)
 
-                        let jwt = response.headers.get('Authorization')
-                        if (jwt == null) {
-                            return loginError()
-                        }
                         sessionStorage.setItem('userId', user.id.toString())
-                        localStorage.setItem('Authorization', jwt)
+                        
                         return loginSuccess({ user })
                     }),
                     catchError(() => {
@@ -49,10 +43,10 @@ export class UserEffects {
     register$ = createEffect(() =>
         this.actions$.pipe(
             ofType(register),
-            switchMap((actions) => this.userService.register(actions.firstname, actions.lastname, actions.username, actions.password).pipe(
+            switchMap((action) => this.userService.register(action.firstname, action.lastname, action.username, action.password).pipe(
                 map(() => {
                     this.logger.info("[UserEffects] Successfully registered, attempting to login")
-                    return login({ username: actions.username, password: actions.password})
+                    return login({ username: action.username, password: action.password})
                 }),
                 catchError(() => {
                     this.logger.info("[UserEffects] Unable to register user")

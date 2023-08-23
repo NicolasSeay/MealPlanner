@@ -35,10 +35,10 @@ import { RequestInterceptor } from './interceptors/requestInterceptor';
     HttpClientModule,
     ReactiveFormsModule,
     StoreModule.forRoot({
-      'user': userReducer,
-      'recipe': recipeReducer,
-      'loginError': loginErrorReducer,
-      'registerError': registerErrorReducer
+      user: userReducer,
+      recipes: recipeReducer,
+      loginError: loginErrorReducer,
+      registerError: registerErrorReducer
     }, {}),
     StoreRouterConnectingModule.forRoot(),
     EffectsModule.forRoot([UserEffects, RecipeEffects]),
