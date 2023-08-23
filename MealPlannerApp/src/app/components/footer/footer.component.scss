@@ -1,14 +1,16 @@
 
 #wrapper {
-    background-color: #69696984;
-    // opacity: 0.5;
-
-    padding: 1vh 1vw;
+    background-color: white;
 }
 
-#title {
-    color: white;
-
+#footer-text {
     text-align: center;
-    font-size: 18px;
+    font-size: 1.2vh;
+
+    width: fit-content;
+
+    padding: 1vh 10vw;
+    margin: auto;
+    box-shadow: 0 -2px #cc8c38;
+    // box-shadow: 0 -2px #cc8c38, inset 0px 1vh 1vh -.8vh gray;
 }

@@ -1,14 +1,11 @@
 
 #wrapper {
-    background-color: #69696984;
-    // opacity: 0.5;
-
-    padding: 2vh 2vw;
+    box-shadow: 0px 2px 10px #cc8c38;
 }
 
-#title {
-    color: white;
+#header-text {
+    font-size: 3vh;
+    font-family: Ogg-Light;
 
-    text-align: center;
-    font-size: 30px;
+    padding: 1vh 10vw;
 }

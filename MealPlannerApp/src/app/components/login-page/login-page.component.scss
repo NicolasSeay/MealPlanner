@@ -8,7 +8,7 @@
 }
 
 #wrapper {
-    background-color: #ecebe7d2;
+    background-color: rgba(255, 255, 255, 0.623);
     height: 60vh;
     width: 20vw;
     min-height: 400px;
@@ -19,18 +19,26 @@
     top: 20vh;
     left: 40vw;
 
-    border-radius: 0 30%;
-    box-shadow: max(2vw, 40px) 0px 0px -2vh #cc8c38, 
-                min(-2vw, -40px) 0px 0px -2vh #cc8c38;
+    // border-radius: 0 30%;
+    // box-shadow: max(2vw, 30px) 0px 0px -2vh #cc8c38, 
+    //             min(-2vw, -30px) 0px 0px -2vh #cc8c38;
+    // box-shadow: -1vh 1vh 0 1vh #cc8c38, 1vh -1vh 0 1vh #c9c9c9c2;
+    box-shadow: 0 0 1vh 1vh rgba(0, 0, 0, 0.596); 
 }
 
 #title {
-    font-size: max(1.5vw, 26px);
-    font-weight: lighter;
-    padding: 6vh 1vw 0vh 1vw;
+    color: black;
+    font-size: 40px;
+    // font-weight: lighter;
+    font-family: Ogg-Regular;
+    padding: 2vh 1vw 0vh 1vw;
+}
+#mp {
+    font-family: Ogg-Bold;
 }
 
 #loginForm {
+    // background-color: silver;
     padding-top: max(5vh, 40px);
 }
 
@@ -39,15 +47,17 @@
 }
 
 .credential {
+    color: black;
     width: 70%;
-    width:min-content;
+    width: min-content;
     font-size: max(1vw, 16px);
+    // font-family: Ogg-Thin;
     
     padding: 8px 16px;
     border: none;
 
-    background-color: #e6e0d6d2;
-    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.404);
+    // border-radius: 2px;
     box-shadow: 0 0 0 1px #cc8c38;
     margin: 1vh auto;
 }
@@ -55,7 +65,7 @@
     outline: none;
 }
 .credential:hover {
-    box-shadow: 0 0 6px 1px #cc8c38;
+    box-shadow: 0 0 0 1px #cc8c38, 0.5vh 0.5vh #cc8c38;
 }
 .credential:focus {
     box-shadow: 0 0 0 2px #cc8c38;
@@ -69,14 +79,15 @@
     padding: 8px 16px;
     border: none;
 
-    background-color: #e6e0d6d2;
-    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.404);
+    // border-radius: 2px;
     box-shadow: 0 0 0 1px #cc8c38;
     margin: 1vh 1vw;
 }
 .button:hover {
-    background-color: #cc8c38;
-    color: white;
+    // background-color: #cc8c38;
+    // color: white;
+    box-shadow: 0 0 0 1px #cc8c38, 0.5vh 0.5vh #cc8c38;
     cursor: pointer;
 }
 

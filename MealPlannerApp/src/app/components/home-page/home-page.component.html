@@ -1,19 +1,27 @@
 
-<p>Current User: {{ userId }}</p>
+<div id="wrapper">
 
-<table>
-	<thead>
-		<tr>
-			<th>ID</th>
-			<th>Recipe ID</th>
-			<th>Name</th>
-		</tr>
-	</thead>
-	<tbody>
-        <tr *ngFor="let recipe of recipes$ | async">
-            <td>{{ recipe.id }}</td>
-            <td>{{ recipe.userId }}</td>
-            <td>{{ recipe.name }}</td>
-        </tr>
-	</tbody>
-</table>
+	<app-header></app-header>
+
+	<div id="main">
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Recipe ID</th>
+					<th>Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let recipe of recipes$ | async">
+					<td>{{ recipe.id }}</td>
+					<td>{{ recipe.userId }}</td>
+					<td>{{ recipe.name }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<app-footer></app-footer>
+
+</div>
