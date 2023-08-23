@@ -1,0 +1,19 @@
+
+<p>Current User: {{ userId }}</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Recipe ID</th>
+			<th>Name</th>
+		</tr>
+	</thead>
+	<tbody>
+        <tr *ngFor="let recipe of recipes$ | async">
+            <td>{{ recipe.id }}</td>
+            <td>{{ recipe.userId }}</td>
+            <td>{{ recipe.name }}</td>
+        </tr>
+	</tbody>
+</table>

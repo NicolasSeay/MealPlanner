@@ -2,10 +2,11 @@
 Full-Stack application that allows users to plan their meals for the week by storing recipes and their respective ingredients.
 
 ### Current Status
-Login page complete.
+Login page functionality complete.
+Frontend modernized to ngrx
 
 ### Future Work
-Migrate to ngrx.
+Update frontend css.
 Develop a main landing page once the user has been authenticated.
 Using the user's meal plan, compile a shopping list for them to use when grocery shopping.
 

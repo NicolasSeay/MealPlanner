@@ -1,32 +1,52 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { EffectsModule } from '@ngrx/effects';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './login/login.component';
-import { UserService } from './user.service';
-import { RecipeService } from './recipe.service';
-import { IngredientService } from './ingredient.service';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { UserEffects } from './effects/user.effects';
+import { Logger } from './app.logger';
+import { RecipeEffects } from './effects/recipe.effects';
+import { userReducer } from './reducers/user.reducer';
+import { recipeReducer } from './reducers/recipe.reducer';
+import { loginErrorReducer, registerErrorReducer } from './reducers/error.reducer';
+import { ResponseInterceptor } from './interceptors/responseInterceptor';
+import { RequestInterceptor } from './interceptors/requestInterceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginPageComponent,
+    HomePageComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    StoreModule.forRoot({
+      user: userReducer,
+      recipes: recipeReducer,
+      loginError: loginErrorReducer,
+      registerError: registerErrorReducer
+    }, {}),
+    StoreRouterConnectingModule.forRoot(),
+    EffectsModule.forRoot([UserEffects, RecipeEffects]),
   ],
   providers: [
-    UserService,
-    RecipeService,
-    IngredientService
+    Logger,
+    { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ResponseInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

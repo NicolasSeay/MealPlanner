@@ -10,13 +10,6 @@ DELETE FROM user;
 INSERT INTO user VALUES
 (1, "Nico", "Seay", "nico", "password"),
 (2, "Bobby", "Tables", "username", "password");
--- (1, "Nico", "Seay"),
--- (2, "Bobby", "Tables");
-
-# Credentials data
--- INSERT INTO credentials VALUES
--- (1, "nico", "password"),
--- (2, "username", "password");
 
 # Recipe data
 INSERT INTO recipe VALUES

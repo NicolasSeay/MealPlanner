@@ -17,17 +17,17 @@ public class Recipe {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private Long user_id;
+	private Long userId;
 	
 	private String name;
 	
 	private Integer servings;
 	
-	private Integer prep_time;
+	private Integer prepTime;
 	
-	private Double total_price;
+	private Double totalPrice;
 	
-	private Integer total_cals;
+	private Integer totalCals;
 	
 	private String notes;
 
@@ -35,12 +35,12 @@ public class Recipe {
 	public String toString() {
 		return "Recipe{" +
 				"id=" + id +
-				", user_id=" + user_id +
+				", user_id=" + userId +
 				", name='" + name + '\'' +
 				", servings=" + servings +
-				", prep_time=" + prep_time +
-				", total_price=" + total_price +
-				", total_cals=" + total_cals +
+				", prep_time=" + prepTime +
+				", total_price=" + totalPrice +
+				", total_cals=" + totalCals +
 				", notes='" + notes + '\'' +
 				'}';
 	}
