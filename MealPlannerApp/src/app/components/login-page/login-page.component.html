@@ -2,13 +2,15 @@
 <div class="image"></div>
 
 <div id="wrapper">
-    <p id="title">
-        <span id="mp">M P | </span>
-        <span>Meal Planner</span>
-    </p>
+    <div id="title-section">
+        <div id="title">
+            <span id="mp">M P | </span>
+            <span>Meal Planner</span>
+        </div>
+    </div>
 
     <form id="loginForm" [formGroup]="loginForm" *ngIf="!isRegistering" (ngSubmit)="doLogin()">
-        <div>
+        <div id="loginInputs">
             <input type="text" formControlName="username" class="form-control credential" placeholder="Username" />
             <input type="password" formControlName="password" class="form-control credential" placeholder="Password" />
         </div>
