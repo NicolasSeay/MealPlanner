@@ -4,22 +4,15 @@
 	<app-header></app-header>
 
 	<div id="main">
-		<table>
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Recipe ID</th>
-					<th>Name</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let recipe of recipes$ | async">
-					<td>{{ recipe.id }}</td>
-					<td>{{ recipe.userId }}</td>
-					<td>{{ recipe.name }}</td>
-				</tr>
-			</tbody>
-		</table>
+		<div id="title">My Recipes</div>
+		<div id="recipeBox" *ngFor="let recipe of recipes$ | async">
+			<div id="recipe">
+				<div id="recipeName">{{ recipe.name }} </div>
+				<div class="tag">Servings: {{ recipe.servings }} </div>
+				<div class="tag">Prep-Time: {{ recipe.prepTime }} </div>
+				<div class="tag">Cals-per-serving: {{ recipe.totalCals / recipe.servings }}</div>
+			</div>
+		</div>
 	</div>
 	
 	<app-footer></app-footer>
