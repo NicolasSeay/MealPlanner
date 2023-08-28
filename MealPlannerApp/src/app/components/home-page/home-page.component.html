@@ -9,8 +9,6 @@
 			<div id="recipe" (click)="setExpandedRecipe(i)">
 				<div id="recipeHeader" [ngClass]="this.expandedRecipe == i ? 'recipe-header-active' : ''">
 					<div class='expand-collapse-icon' [ngClass]="this.expandedRecipe == i ? 'collapsed' : ''"></div>
-					<!-- <div *ngIf="this.expandedRecipe == i">-</div> -->
-					<!-- <div *ngIf="this.expandedRecipe != i">+</div> -->
 					<div id="recipeName">{{ recipe.name }}</div>
 					<div class="tag">Servings: {{ recipe.servings }}</div>
 					<div class="tag">Prep-Time: {{ recipe.prepTime }}</div>
