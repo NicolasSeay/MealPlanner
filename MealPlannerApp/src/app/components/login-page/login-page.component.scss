@@ -23,11 +23,13 @@
 }
 
 #title-section {
+    background-color: rgb(240, 240, 240);
     color: black;
+    box-shadow: 0px 2px #cc8c38;
     font-size: max(2vw, 30px);
     font-family: Ogg-Regular;
 
-    height: 30%;
+    height: 20%;
     position: relative;
 }
 
@@ -53,7 +55,11 @@
 }
 
 #loginInputs {
-    padding-top: 10%;
+    padding-top: 30%;
+}
+
+#registerInputs {
+    padding-top: 20%;
 }
 
 .credential {
@@ -65,7 +71,8 @@
     padding: 8px 16px;
     border: none;
 
-    background-color: rgba(255, 255, 255, 0.404);
+    // background-color: rgba(255, 255, 255, 0.404);
+    background-color: rgb(240, 240, 240);
     box-shadow: 0 0 0 1px rgb(173, 173, 173);
     margin: 1vh auto;
 }
