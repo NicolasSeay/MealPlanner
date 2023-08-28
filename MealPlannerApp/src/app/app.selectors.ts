@@ -3,13 +3,14 @@ import { UserState } from "./reducers/user.reducer";
 import { RecipesState } from "./reducers/recipe.reducer";
 import { LoginErrorState, RegisterErrorState } from "./reducers/error.reducer";
 
+
 // User selectors
 export const selectUserStateFeature =
   createFeatureSelector<UserState>('user');
 
 export const selectUser = createSelector(
-    selectUserStateFeature,
-    (user: UserState) => user
+  selectUserStateFeature,
+  (user: UserState) => user
 )
 
 
@@ -18,8 +19,8 @@ export const selectRecipeStateFeature =
   createFeatureSelector<RecipesState>('recipes');
 
 export const selectRecipes = createSelector(
-    selectRecipeStateFeature,
-    (recipes: RecipesState) => recipes
+  selectRecipeStateFeature,
+  (recipes: RecipesState) => recipes
 )
 
 

@@ -7,8 +7,8 @@ export type UserState = User
 
 export const initialUserState: UserState = {
     id: -1,
-    firstName: '',
-    lastName: ''
+    firstname: '',
+    lastname: ''
 }
 
 export const userReducer = createReducer(

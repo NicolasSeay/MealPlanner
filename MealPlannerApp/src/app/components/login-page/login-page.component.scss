@@ -8,85 +8,103 @@
 }
 
 #wrapper {
-    background-color: #ecebe7d2;
+    background-color: rgba(255, 255, 255, 0.623);
     height: 60vh;
     width: 20vw;
     min-height: 400px;
     min-width: 300px;
 
     text-align: center;
-    position: absolute;
-    top: 20vh;
-    left: 40vw;
+    box-shadow: 0 0 1vh 1vh rgba(0, 0, 0, 0.397);
 
-    border-radius: 0 30%;
-    box-shadow: max(2vw, 40px) 0px 0px -2vh #cc8c38, 
-                min(-2vw, -40px) 0px 0px -2vh #cc8c38;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+#title-section {
+    background-color: rgb(240, 240, 240);
+    color: black;
+    box-shadow: 0px 2px #cc8c38;
+    font-size: max(2vw, 30px);
+    font-family: Ogg-Regular;
+
+    height: 20%;
+    position: relative;
 }
 
 #title {
-    font-size: max(1.5vw, 26px);
-    font-weight: lighter;
-    padding: 6vh 1vw 0vh 1vw;
+    padding: 0 2vw;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    height: fit-content;
+    width: fit-content;
+}
+
+#mp {
+    font-family: Ogg-Bold;
 }
 
 #loginForm {
-    padding-top: max(5vh, 40px);
+    height: 70%;
 }
 
 #registerForm {
-    padding-top: 2vh;
+    height: 70%;
+}
+
+#loginInputs {
+    padding-top: 30%;
+}
+
+#registerInputs {
+    padding-top: 20%;
 }
 
 .credential {
+    color: black;
     width: 70%;
-    width:min-content;
+    width: min-content;
     font-size: max(1vw, 16px);
     
     padding: 8px 16px;
     border: none;
 
-    background-color: #e6e0d6d2;
-    border-radius: 2px;
-    box-shadow: 0 0 0 1px #cc8c38;
+    background-color: rgb(240, 240, 240);
+    box-shadow: 0 0 0 1px rgb(173, 173, 173);
     margin: 1vh auto;
 }
 .credential:focus-visible {
     outline: none;
 }
 .credential:hover {
-    box-shadow: 0 0 6px 1px #cc8c38;
+    box-shadow: 0 0 0 1px #cc8c38, 0.5vh 0.5vh #cc8c38;
 }
 .credential:focus {
     box-shadow: 0 0 0 2px #cc8c38;
 }
 
 .button {
-    width: 70%;
-    width:min-content;
     font-size: max(1vw, 16px);
     
     padding: 8px 16px;
     border: none;
 
-    background-color: #e6e0d6d2;
-    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.404);
     box-shadow: 0 0 0 1px #cc8c38;
-    margin: 1vh 1vw;
+    margin: 5vh 1vw;
 }
 .button:hover {
-    background-color: #cc8c38;
-    color: white;
+    box-shadow: 0 0 0 1px #cc8c38, 0.5vh 0.5vh #cc8c38;
     cursor: pointer;
 }
 
 #cancel {
-    box-shadow: 0 0 0 1px rgb(173, 173, 173);
+    box-shadow: 0 0 0 1px rgb(119, 119, 119);
 }
 #cancel:hover {
-    color: black;
-    background-color: rgb(173, 173, 173);
-    box-shadow: 0 0 0 1px rgb(173, 173, 173);
+    box-shadow: 0 0 0 1px rgb(119, 119, 119), 0.5vh 0.5vh rgb(119, 119, 119);
 }
 
 #error {

@@ -1,14 +1,16 @@
 
 #wrapper {
-    background-color: #69696984;
-    // opacity: 0.5;
-
-    padding: 2vh 2vw;
+    background-color: rgb(240, 240, 240);
+    box-shadow: 0px 2px #cc8c38;
 }
 
 #title {
-    color: white;
+    font-size: 3vh;
+    font-family: Ogg-Light;
 
-    text-align: center;
-    font-size: 30px;
+    padding: 1vh 5vw;
+}
+
+#mp {
+    font-family: Ogg-Bold;
 }
