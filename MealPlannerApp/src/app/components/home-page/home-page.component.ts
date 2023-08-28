@@ -17,7 +17,7 @@ export class HomePageComponent implements OnInit {
 
   recipes$: Observable<Recipe[]>
   userId: number = -1
-  recipes: Recipe[] = []
+  expandedRecipe = -1
 
   constructor(private store: Store, private logger: Logger, private _activatedRoute: ActivatedRoute) {
     this.recipes$ = this.store.select(selectRecipes)
@@ -29,6 +29,10 @@ export class HomePageComponent implements OnInit {
 
     // get recipe list from service and saves in store
     this.store.dispatch(viewRecipes({ userId: this.userId }))
+  }
+
+  setExpandedRecipe(i: number) {
+    this.expandedRecipe = (this.expandedRecipe == i ? -1 : i)
   }
 
 }
