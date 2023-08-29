@@ -24,7 +24,7 @@ public class RecipeController {
 	private JWTUtil jwtUtil;
 	
 	@GetMapping("/{userId}")
-	public ResponseEntity<List<Recipe>> recipes(@PathVariable long userId) {
+	public ResponseEntity<List<Recipe>> recipes(@PathVariable Long userId) {
 		List<Recipe> recipes = recipeService.getAllRecipes(userId);
 		log.info("Recipes - recipe list size: {}", recipes.size());
 
@@ -45,8 +45,8 @@ public class RecipeController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	@DeleteMapping("/remove/{userId}/recipe/{recipeId}")
-	public ResponseEntity<Void> deleteRecipe(@PathVariable long userId, @PathVariable long recipeId) {
+	@DeleteMapping("/remove/{recipeId}")
+	public ResponseEntity<Void> deleteRecipe(@PathVariable Long recipeId) {
 		try {
 			recipeService.deleteRecipe(recipeId);
 		} catch (Exception e) {

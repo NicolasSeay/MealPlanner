@@ -1,5 +1,9 @@
 
 export type Ingredient = {
-    name: string,
-    amount: number,
+    id: number,
+	name: string,
+	amount: number,
+	unit: string,
+	price: number,
+	calories: number
 }

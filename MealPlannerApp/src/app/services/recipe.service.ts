@@ -13,7 +13,7 @@ export class RecipeService {
   constructor(private http: HttpClient, private logger: Logger) { }
 
   recipes(userId: number) {
-    this.logger.info("[RecipeService] Sending recipe list request to backend")
+    this.logger.info("[RecipeService] Getting recipes from backend")
     return this.http.get<Recipe[]>(
       this.baseUrl + "/" + userId
     )

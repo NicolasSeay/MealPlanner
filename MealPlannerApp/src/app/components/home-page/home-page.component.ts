@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { viewRecipes } from 'src/app/actions/recipe.actions';
 import { Logger } from 'src/app/app.logger';
@@ -17,10 +17,11 @@ export class HomePageComponent implements OnInit {
 
   recipes$: Observable<Recipe[]>
   userId: number = -1
-  expandedRecipe = -1
+  expandedRecipes = new Set<number>()
 
   constructor(private store: Store, private logger: Logger, private _activatedRoute: ActivatedRoute) {
     this.recipes$ = this.store.select(selectRecipes)
+    // this.ingredients$ = this.store.select(selectIngredients)
   }
 
   ngOnInit(): void {
@@ -31,8 +32,14 @@ export class HomePageComponent implements OnInit {
     this.store.dispatch(viewRecipes({ userId: this.userId }))
   }
 
-  setExpandedRecipe(i: number) {
-    this.expandedRecipe = (this.expandedRecipe == i ? -1 : i)
+  isExpanded(recipeId: number) {
+    return this.expandedRecipes.has(recipeId)
+  }
+
+  expandRecipe(recipeId: number) {
+    this.isExpanded(recipeId)
+      ? this.expandedRecipes.delete(recipeId)
+      : this.expandedRecipes.add(recipeId)
   }
 
 }

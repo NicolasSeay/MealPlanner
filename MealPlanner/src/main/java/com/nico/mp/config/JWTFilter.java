@@ -2,6 +2,7 @@ package com.nico.mp.config;
 
 import com.nico.mp.constants.Constants;
 import com.nico.mp.util.JWTUtil;
+import io.jsonwebtoken.JwtException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -30,9 +31,12 @@ public class JWTFilter extends OncePerRequestFilter {
         try {
             jwtUtil.validateToken(servletRequest.getHeader(Constants.AUTHORIZATION_HEADER));
             filterChain.doFilter(servletRequest, servletResponse);
-        } catch (Exception e) {
-            log.error("Unable to validate JWT", e);
+        } catch (JwtException jwte) {
+            log.error("Unable to validate JWT");
             servletResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+            servletResponse.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 

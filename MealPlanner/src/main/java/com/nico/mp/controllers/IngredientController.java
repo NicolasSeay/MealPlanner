@@ -19,8 +19,8 @@ public class IngredientController {
 	@Autowired
 	private IngredientService ingredientService;
 	
-	@GetMapping
-	public ResponseEntity<List<Ingredient>> ingredients(@RequestParam long recipeId) {
+	@GetMapping("/{recipeId}")
+	public ResponseEntity<List<Ingredient>> ingredients(@PathVariable Long recipeId) {
 		List<Ingredient> ingredients = ingredientService.getIngredients(recipeId);
 		
 		return ingredients.isEmpty()
@@ -39,7 +39,7 @@ public class IngredientController {
 	}
 	
 	@DeleteMapping("/remove")
-	public ResponseEntity<Void> deleteIngredient(@RequestParam long recipeId, @RequestParam long ingredientId)
+	public ResponseEntity<Void> deleteIngredient(@RequestParam Long recipeId, @RequestParam Long ingredientId)
 	{
 		try {
 			ingredientService.deleteIngredient(recipeId, ingredientId);

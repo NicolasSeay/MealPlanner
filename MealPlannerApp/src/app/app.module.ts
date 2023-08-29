@@ -20,6 +20,8 @@ import { recipeReducer } from './reducers/recipe.reducer';
 import { loginErrorReducer, registerErrorReducer } from './reducers/error.reducer';
 import { ResponseInterceptor } from './interceptors/responseInterceptor';
 import { RequestInterceptor } from './interceptors/requestInterceptor';
+import { ingredientReducer } from './reducers/ingredient.reducer';
+import { IngredientEffects } from './effects/ingredient.effects';
 
 @NgModule({
   declarations: [
@@ -37,11 +39,12 @@ import { RequestInterceptor } from './interceptors/requestInterceptor';
     StoreModule.forRoot({
       user: userReducer,
       recipes: recipeReducer,
+      ingredients: ingredientReducer,
       loginError: loginErrorReducer,
       registerError: registerErrorReducer
     }, {}),
     StoreRouterConnectingModule.forRoot(),
-    EffectsModule.forRoot([UserEffects, RecipeEffects]),
+    EffectsModule.forRoot([UserEffects, RecipeEffects, IngredientEffects]),
   ],
   providers: [
     Logger,

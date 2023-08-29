@@ -21,7 +21,10 @@ INSERT INTO recipe VALUES
 INSERT INTO ingredient VALUES
 (1, 2, "Ground beef", 2, "lbs", "16", NULL),
 (2, 2, "Macaroni", 1, "box", 3, NULL),
-(3, 2, "Pasta sauce", 1, "jar", "3", NULL);
+(3, 2, "Pasta sauce", 1, "jar", "3", NULL),
+(4, 3, "Macaroni", 12, "oz", "2", NULL),
+(5, 3, "Cheese", 8, "oz", "4", NULL);
+
 
 UPDATE recipe SET total_price=(SELECT SUM(price) FROM ingredient WHERE recipe_id=1) WHERE id=1;
 UPDATE recipe SET total_price=(SELECT SUM(price) FROM ingredient WHERE recipe_id=2) WHERE id=2;

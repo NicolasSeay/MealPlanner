@@ -9,23 +9,21 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Entity
-@IdClass(IngredientKey.class)
 public class Ingredient implements Serializable {
 	
-	private static final long serialVersionUID = 1L;
+	private static final Long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Id
+
 	private Long recipeId;
 	
 	private String name;
 	
 	private Double amount;
 	
-	private String measurement;
+	private String unit;
 	
 	private Double price;
 	

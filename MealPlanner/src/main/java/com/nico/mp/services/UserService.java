@@ -1,9 +1,9 @@
 package com.nico.mp.services;
 
-import com.nico.mp.domain.UserNoCredentials;
+import com.nico.mp.domain.User;
 
 public interface UserService {
 	
-	public UserNoCredentials getUser(String username, String password);
+	User getUser(String username, String password);
 
 }
