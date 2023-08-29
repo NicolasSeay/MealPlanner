@@ -11,9 +11,9 @@ import java.util.List;
 public interface IngredientRepository extends CrudRepository<Ingredient, Long> {
 
 	@Query("SELECT i FROM Ingredient i WHERE i.recipeId=?1")
-	List<Ingredient> findAllById(long recipeId);
+	List<Ingredient> findAllById(Long recipeId);
 	
-	@Query("DELETE FROM Ingredient WHERE recipeId=?1 AND id=?2")
-	void deleteById(long recipeId, long ingredientId);
+	@Query("DELETE FROM Ingredient i WHERE i.recipeId=?1 AND id=?2")
+	void deleteById(Long recipeId, Long ingredientId);
 
 }

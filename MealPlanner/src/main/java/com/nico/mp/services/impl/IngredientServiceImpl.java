@@ -15,7 +15,7 @@ public class IngredientServiceImpl implements IngredientService {
 	private IngredientRepository ingredientRepository;
 
 	@Override
-	public List<Ingredient> getIngredients(long recipeId) {
+	public List<Ingredient> getIngredients(Long recipeId) {
 		return ingredientRepository.findAllById(recipeId);
 	}
 
@@ -25,7 +25,7 @@ public class IngredientServiceImpl implements IngredientService {
 	}
 
 	@Override
-	public void deleteIngredient(long recipeId, long ingredientId) {
+	public void deleteIngredient(Long recipeId, Long ingredientId) {
 		ingredientRepository.deleteById(recipeId, ingredientId);
 	}
 	

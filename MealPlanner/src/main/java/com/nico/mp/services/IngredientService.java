@@ -6,10 +6,10 @@ import java.util.List;
 
 public interface IngredientService {
 
-	List<Ingredient> getIngredients(long recipeId);
+	List<Ingredient> getIngredients(Long recipeId);
 
 	void saveIngredient(Ingredient ingredient);
 
-	void deleteIngredient(long recipeId, long ingredientId);
+	void deleteIngredient(Long recipeId, Long ingredientId);
 
 }

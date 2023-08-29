@@ -2,6 +2,7 @@ import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { UserState } from "./reducers/user.reducer";
 import { RecipesState } from "./reducers/recipe.reducer";
 import { LoginErrorState, RegisterErrorState } from "./reducers/error.reducer";
+import { IngredientsState } from "./reducers/ingredient.reducer";
 
 
 // User selectors
@@ -21,6 +22,16 @@ export const selectRecipeStateFeature =
 export const selectRecipes = createSelector(
   selectRecipeStateFeature,
   (recipes: RecipesState) => recipes
+)
+
+
+// Ingredient selectors
+export const selectIngredientStateFeature =
+  createFeatureSelector<IngredientsState>('ingredients');
+
+export const selectIngredients = createSelector(
+  selectIngredientStateFeature,
+  (ingredients: IngredientsState) => ingredients
 )
 
 

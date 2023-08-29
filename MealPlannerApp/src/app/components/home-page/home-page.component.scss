@@ -25,7 +25,7 @@ app-footer {
     background-color: rgb(240, 240, 240);
     box-shadow: 0 0 0 1px #cc8c38;
 
-    border-radius: 1vh;
+    border-radius: 0.5vh;
 }
 #recipe:hover {
     background-color: lightgray;
@@ -37,7 +37,7 @@ app-footer {
     justify-content: flex-end;
     align-items: center;
 
-    border-radius: 1vh 1vh 0 0;
+    border-radius: 0.5vh 0.5vh 0 0;
     padding: 1vh 1vw;
 }
 .recipe-header-active {
@@ -53,7 +53,7 @@ app-footer {
 .tag {
     font-size: small;
     background-color: #cc8c38;
-    border-radius: 5px;
+    border-radius: 0.5vh;
     padding: 3px 5px;
     margin: 0px 5px;
     color: white;
@@ -61,9 +61,10 @@ app-footer {
 
 #recipeDetails {
     background-color: white;
-    border-radius: 0 0 1vh 1vh;
+    border-radius: 0 0 0.5vh 0.5vh;
 
     padding: 1vh 1vw;
+    cursor: default;
 }
 
 

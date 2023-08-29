@@ -1,9 +1,9 @@
 package com.nico.mp.controllers;
 
-import com.nico.mp.util.JWTUtil;
 import com.nico.mp.domain.LoginRequest;
-import com.nico.mp.domain.UserNoCredentials;
+import com.nico.mp.domain.User;
 import com.nico.mp.services.UserService;
+import com.nico.mp.util.JWTUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -24,9 +24,9 @@ public class UserController {
 	private JWTUtil jwtUtil;
 	
 	@PostMapping("/login")
-	public ResponseEntity<UserNoCredentials> login(@RequestBody LoginRequest loginRequest) {
+	public ResponseEntity<User> login(@RequestBody LoginRequest loginRequest) {
 		log.info("Received login request");
-		UserNoCredentials user = userService.getUser(loginRequest.getUsername(), loginRequest.getPassword());
+		User user = userService.getUser(loginRequest.getUsername(), loginRequest.getPassword());
 
 		if (user == null) {
 			log.info("Login - user not found");

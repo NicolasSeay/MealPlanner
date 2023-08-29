@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface RecipeService {
 	
-	public List<Recipe> getAllRecipes(long userId);
+	public List<Recipe> getAllRecipes(Long userId);
 	
 	public void saveRecipe(Recipe recipe);
 	
