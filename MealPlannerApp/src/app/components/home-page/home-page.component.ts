@@ -21,7 +21,6 @@ export class HomePageComponent implements OnInit {
 
   constructor(private store: Store, private logger: Logger, private _activatedRoute: ActivatedRoute) {
     this.recipes$ = this.store.select(selectRecipes)
-    // this.ingredients$ = this.store.select(selectIngredients)
   }
 
   ngOnInit(): void {

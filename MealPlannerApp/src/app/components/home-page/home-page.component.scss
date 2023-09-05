@@ -67,7 +67,6 @@ app-footer {
     cursor: default;
 }
 
-
 .expand-collapse-icon {
     font-size: 20px;
     width: .8em;
@@ -99,4 +98,25 @@ app-footer {
 
 .collapsed.expand-collapse-icon::before {
     transform: rotate(90deg) scale(0);
+}
+
+#ingredientDetails {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.ingredientInfo {
+    padding: 10px 10px;
+    width: calc(50% - 20px);
+    text-align: center;
+}
+
+hr {
+    border: 1px solid #cc8c38;
+}
+
+.instructionInfo {
+    box-shadow: 0 0 0 1px rgb(173, 173, 173);
+    border-radius: 5px;
 }

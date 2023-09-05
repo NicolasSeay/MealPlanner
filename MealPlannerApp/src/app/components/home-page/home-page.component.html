@@ -4,7 +4,6 @@
 	<app-header></app-header>
 
 	<div id="main">
-		<div id="title">My Recipes</div>
 		<div id="recipeBox" *ngFor="let recipe of recipes$ | async; let i = index">
 			<div id="recipe">
 				<div id="recipeHeader" (click)="expandRecipe(recipe.id)" [ngClass]="isExpanded(recipe.id) ? 'recipe-header-active' : ''">
@@ -12,13 +11,22 @@
 					<div id="recipeName">{{ recipe.name }}</div>
 					<div class="tag">Servings: {{ recipe.servings }}</div>
 					<div class="tag">Prep-Time: {{ recipe.prepTime }}</div>
-					<div class="tag">Cals-per-serving: {{ recipe.totalCals / recipe.servings }}</div>
+					<!-- <div class="tag">Cals-per-serving: {{ recipe.totalCals / recipe.servings }}</div> -->
 				</div>
 
 				<div id="recipeDetails" *ngIf="isExpanded(recipe.id)">
-					<ul *ngFor="let ingredient of recipe.ingredients">
-						{{ ingredient.name }}
-					</ul>
+					<div id="ingredientDetails">
+						<div class="ingredientInfo" *ngFor="let ingredient of recipe.ingredients">
+							{{ ingredient.name }}
+						</div>
+					</div>
+					<hr>
+					<div id="instructionDetails">
+						<ol class="instructionInfo" *ngFor="let instruction of recipe.instructions">
+							{{ instruction.ordering }}.
+							{{ instruction.instruction }}
+						</ol>
+					</div>
 				</div>
 			</div>
 		</div>

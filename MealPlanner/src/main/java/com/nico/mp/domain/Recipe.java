@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -24,13 +23,12 @@ public class Recipe {
 	
 	private Integer prepTime;
 	
-	private Double totalPrice;
-	
-	private Integer totalCals;
-	
 	private String notes;
 
 	@OneToMany
-	private List<Ingredient> ingredients = new ArrayList<>();
+	private List<Ingredient> ingredients;
+
+	@OneToMany
+	private List<Instruction> instructions;
 
 }
