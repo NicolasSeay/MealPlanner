@@ -1,8 +1,7 @@
 -- CREATE DATABASE mealplanner;
 USE mealplanner;
 
-DROP TABLE IF EXISTS recipe_ingredients;
-DROP TABLE IF EXISTS user_no_credentials;
+DROP TABLE IF EXISTS instruction;
 DROP TABLE IF EXISTS ingredient;
 DROP TABLE IF EXISTS recipe;
 DROP TABLE IF EXISTS user;
@@ -21,8 +20,6 @@ CREATE TABLE recipe (
 	name VARCHAR(32),
 	servings INT,
 	prep_time INT,
-	total_price DOUBLE,
-	total_cals INT,
 	notes VARCHAR(1000),
     FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
 );
@@ -35,5 +32,13 @@ CREATE TABLE ingredient (
     unit VARCHAR(10),
     price DOUBLE,
     calories INT,
+    FOREIGN KEY (recipe_id) REFERENCES recipe(id) ON DELETE CASCADE
+);
+
+CREATE TABLE instruction (
+	id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    recipe_id BIGINT,
+    ordering BIGINT,
+    instruction VARCHAR(1000),
     FOREIGN KEY (recipe_id) REFERENCES recipe(id) ON DELETE CASCADE
 );
