@@ -4,19 +4,33 @@
     min-height: 100vh;
 }
 
+app-nav-panel {
+    position: absolute;
+    left: 0;
+    width: 15vw;
+}
+
+app-ad-panel {
+    position: absolute;
+    right: 0;
+    width: 15vw;
+}
+
 app-footer {
     position: absolute;
     bottom: 0;
-    width: 100%
+    width: 100%;
 }
 
 #main {
-    margin: 1vh 1vw;
-    padding-bottom: 3.2vh;
+    position: absolute;
+    left: 15vw;
+    width: 68vw;
+    padding: 1vw;
+    // padding-bottom: 3.2vh;
 }
 
 #recipeBox {
-    width: 60vw;
     min-width: fit-content;
     padding: 0.5vh 0;
 }

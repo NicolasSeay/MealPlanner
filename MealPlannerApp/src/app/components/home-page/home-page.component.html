@@ -3,6 +3,8 @@
 
 	<app-header></app-header>
 
+	<app-nav-panel></app-nav-panel>
+
 	<div id="main">
 		<div id="recipeBox" *ngFor="let recipe of recipes$ | async; let i = index">
 			<div id="recipe">
@@ -31,6 +33,8 @@
 			</div>
 		</div>
 	</div>
+
+	<app-ad-panel></app-ad-panel>
 	
 	<app-footer></app-footer>
 

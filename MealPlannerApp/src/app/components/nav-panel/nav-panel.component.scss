@@ -1,0 +1,14 @@
+
+nav {
+    width: 15vw;
+    height: 91.5vh;
+
+    background-color: rgb(240, 240, 240);
+    box-shadow: inset -2px 0 #cc8c38;
+    padding-top: 1vh;
+}
+
+nav > * {
+    padding: 0.5vh 0.5vw;
+    text-align: center;
+}

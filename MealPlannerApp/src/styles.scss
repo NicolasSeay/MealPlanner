@@ -14,6 +14,10 @@ body {
     font-family: 'Verdana', sans-serif;
 }
 
+* {
+    z-index: auto;
+}
+
 @font-face {
     font-family: Ogg-Bold;
     src: url('/assets/fonts/OggBold.woff')

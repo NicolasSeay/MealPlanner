@@ -22,6 +22,8 @@ import { ResponseInterceptor } from './interceptors/responseInterceptor';
 import { RequestInterceptor } from './interceptors/requestInterceptor';
 import { ingredientReducer } from './reducers/ingredient.reducer';
 import { IngredientEffects } from './effects/ingredient.effects';
+import { NavPanelComponent } from './components/nav-panel/nav-panel.component';
+import { AdPanelComponent } from './components/ad-panel/ad-panel.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { IngredientEffects } from './effects/ingredient.effects';
     HomePageComponent,
     HeaderComponent,
     FooterComponent,
+    NavPanelComponent,
+    AdPanelComponent,
   ],
   imports: [
     BrowserModule,
