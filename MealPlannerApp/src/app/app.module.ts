@@ -17,7 +17,7 @@ import { Logger } from './app.logger';
 import { RecipeEffects } from './effects/recipe.effects';
 import { userReducer } from './reducers/user.reducer';
 import { recipeReducer } from './reducers/recipe.reducer';
-import { loginErrorReducer, registerErrorReducer } from './reducers/error.reducer';
+import { expiredSessionErrorReducer, loginErrorReducer, registerErrorReducer } from './reducers/error.reducer';
 import { ResponseInterceptor } from './interceptors/responseInterceptor';
 import { RequestInterceptor } from './interceptors/requestInterceptor';
 import { ingredientReducer } from './reducers/ingredient.reducer';
@@ -45,7 +45,8 @@ import { AdPanelComponent } from './components/ad-panel/ad-panel.component';
       recipes: recipeReducer,
       ingredients: ingredientReducer,
       loginError: loginErrorReducer,
-      registerError: registerErrorReducer
+      registerError: registerErrorReducer,
+      expiredSessionError: expiredSessionErrorReducer,
     }, {}),
     StoreRouterConnectingModule.forRoot(),
     EffectsModule.forRoot([UserEffects, RecipeEffects, IngredientEffects]),

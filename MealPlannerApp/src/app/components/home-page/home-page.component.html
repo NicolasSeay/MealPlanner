@@ -6,6 +6,8 @@
 	<app-nav-panel></app-nav-panel>
 
 	<div id="main">
+        <div id="error" *ngIf="(expiredSessionError$ | async) != ''">{{ expiredSessionError$ | async }}</div>
+
 		<div id="recipeBox" *ngFor="let recipe of recipes$ | async; let i = index">
 			<div id="recipe">
 				<div id="recipeHeader" (click)="expandRecipe(recipe.id)" [ngClass]="isExpanded(recipe.id) ? 'recipe-header-active' : ''">
@@ -24,10 +26,15 @@
 					</div>
 					<hr>
 					<div id="instructionDetails">
-						<ol class="instructionInfo" *ngFor="let instruction of recipe.instructions">
-							{{ instruction.ordering }}.
-							{{ instruction.instruction }}
-						</ol>
+						<div *ngIf="recipe.instructions.length > 0">
+							<ol class="instructionInfo" *ngFor="let instruction of recipe.instructions">
+								{{ instruction.ordering }}.
+								{{ instruction.instruction }}
+							</ol>
+						</div>
+						<div id="noInstructionsMsg" *ngIf="recipe.instructions.length == 0">
+							No instructions yet.
+						</div>
 					</div>
 				</div>
 			</div>

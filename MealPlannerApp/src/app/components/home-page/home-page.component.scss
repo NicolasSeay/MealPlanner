@@ -7,7 +7,7 @@
 app-nav-panel {
     position: absolute;
     left: 0;
-    width: 15vw;
+    width: 12vw;
 }
 
 app-ad-panel {
@@ -24,10 +24,9 @@ app-footer {
 
 #main {
     position: absolute;
-    left: 15vw;
+    left: 12vw;
     width: 68vw;
     padding: 1vw;
-    // padding-bottom: 3.2vh;
 }
 
 #recipeBox {
@@ -36,13 +35,13 @@ app-footer {
 }
 
 #recipe {
-    background-color: rgb(240, 240, 240);
-    box-shadow: 0 0 0 1px #cc8c38;
+    background-color: var(--verylightgray);
+    box-shadow: 0 0 0 1px var(--orange);
 
     border-radius: 0.5vh;
 }
 #recipe:hover {
-    background-color: lightgray;
+    background-color: var(--lightgray);
     cursor: pointer;
 }
 
@@ -55,8 +54,7 @@ app-footer {
     padding: 1vh 1vw;
 }
 .recipe-header-active {
-    background-color: lightgray;
-    
+    background-color: var(--lightgray);
 }
 
 #recipeName {
@@ -66,7 +64,7 @@ app-footer {
 
 .tag {
     font-size: small;
-    background-color: #cc8c38;
+    background-color: var(--orange);
     border-radius: 0.5vh;
     padding: 3px 5px;
     margin: 0px 5px;
@@ -127,10 +125,22 @@ app-footer {
 }
 
 hr {
-    border: 1px solid #cc8c38;
+    border: 1px solid var(--orange);
 }
 
 .instructionInfo {
-    box-shadow: 0 0 0 1px rgb(173, 173, 173);
+    box-shadow: 0 0 0 1px var(--darkgray);
     border-radius: 5px;
+}
+
+#noInstructionsMsg {
+    font-style: italic;
+    margin: auto;
+}
+
+#error {
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 1vh auto;
 }

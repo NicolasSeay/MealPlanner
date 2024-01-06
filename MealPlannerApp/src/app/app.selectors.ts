@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { UserState } from "./reducers/user.reducer";
 import { RecipesState } from "./reducers/recipe.reducer";
-import { LoginErrorState, RegisterErrorState } from "./reducers/error.reducer";
+import { ExpiredSessionErrorState, LoginErrorState, RegisterErrorState } from "./reducers/error.reducer";
 import { IngredientsState } from "./reducers/ingredient.reducer";
 
 
@@ -50,4 +50,12 @@ export const selectRegisterErrorStateFeature =
 export const selectRegisterError = createSelector(
   selectRegisterErrorStateFeature,
   (e: RegisterErrorState) => e.message
+)
+
+export const selectExpiredSessionErrorStateFeature =
+  createFeatureSelector<ExpiredSessionErrorState>('expiredSessionError');
+
+export const selectExpiredSessionError = createSelector(
+  selectExpiredSessionErrorStateFeature,
+  (e: ExpiredSessionErrorState) => e.message
 )

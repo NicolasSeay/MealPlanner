@@ -14,8 +14,13 @@ body {
     font-family: 'Verdana', sans-serif;
 }
 
-* {
-    z-index: auto;
+:root {
+    --verydarkgray: rgb(119, 119, 119);
+    --darkgray: rgb(173, 173, 173);
+    --silver: rgb(192, 192, 192);
+    --lightgray: rgb(211, 211, 211);
+    --verylightgray: rgb(240, 240, 240);
+    --orange: #cc8c38;
 }
 
 @font-face {

@@ -23,9 +23,9 @@
 }
 
 #title-section {
-    background-color: rgb(240, 240, 240);
+    background-color: var(--verylightgray);
     color: black;
-    box-shadow: 0px 2px #cc8c38;
+    box-shadow: 0px 2px var(--orange);
     font-size: max(2vw, 30px);
     font-family: Ogg-Regular;
 
@@ -71,18 +71,18 @@
     padding: 8px 16px;
     border: none;
 
-    background-color: rgb(240, 240, 240);
-    box-shadow: 0 0 0 1px rgb(173, 173, 173);
+    background-color: var(--verylightgray);
+    box-shadow: 0 0 0 1px var(--darkgray);
     margin: 1vh auto;
 }
 .credential:focus-visible {
     outline: none;
 }
 .credential:hover {
-    box-shadow: 0 0 0 1px #cc8c38, 0.5vh 0.5vh #cc8c38;
+    box-shadow: 0 0 0 1px var(--orange), 0.5vh 0.5vh var(--orange);
 }
 .credential:focus {
-    box-shadow: 0 0 0 2px #cc8c38;
+    box-shadow: 0 0 0 2px var(--orange);
 }
 
 .button {
@@ -92,19 +92,19 @@
     border: none;
 
     background-color: rgba(255, 255, 255, 0.404);
-    box-shadow: 0 0 0 1px #cc8c38;
+    box-shadow: 0 0 0 1px var(--orange);
     margin: 5vh 1vw;
 }
 .button:hover {
-    box-shadow: 0 0 0 1px #cc8c38, 0.5vh 0.5vh #cc8c38;
+    box-shadow: 0 0 0 1px var(--orange), 0.5vh 0.5vh var(--orange);
     cursor: pointer;
 }
 
 #cancel {
-    box-shadow: 0 0 0 1px rgb(119, 119, 119);
+    box-shadow: 0 0 0 1px var(--verydarkgray);
 }
 #cancel:hover {
-    box-shadow: 0 0 0 1px rgb(119, 119, 119), 0.5vh 0.5vh rgb(119, 119, 119);
+    box-shadow: 0 0 0 1px var(--verydarkgray), 0.5vh 0.5vh var(--verydarkgray);
 }
 
 #error {

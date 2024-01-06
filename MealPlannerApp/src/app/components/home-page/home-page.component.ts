@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { viewRecipes } from 'src/app/actions/recipe.actions';
 import { Logger } from 'src/app/app.logger';
-import { selectRecipes } from 'src/app/app.selectors';
+import { selectExpiredSessionError, selectRecipes } from 'src/app/app.selectors';
 import { Recipe } from 'src/app/models/recipe';
 
 @Component({
@@ -16,11 +16,13 @@ import { Recipe } from 'src/app/models/recipe';
 export class HomePageComponent implements OnInit {
 
   recipes$: Observable<Recipe[]>
+  expiredSessionError$: Observable<String>
   userId: number = -1
   expandedRecipes = new Set<number>()
 
   constructor(private store: Store, private logger: Logger, private _activatedRoute: ActivatedRoute) {
     this.recipes$ = this.store.select(selectRecipes)
+    this.expiredSessionError$ = this.store.select(selectExpiredSessionError)
   }
 
   ngOnInit(): void {
