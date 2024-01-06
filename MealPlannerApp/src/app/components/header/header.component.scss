@@ -1,7 +1,9 @@
 
 #wrapper {
-    background-color: rgb(240, 240, 240);
-    box-shadow: 0px 2px #cc8c38;
+    background-color: var(--silver);
+    box-shadow: inset 0px -2px var(--orange);
+    height: 6.5vh;
+    width: 100vw;
 }
 
 #title {

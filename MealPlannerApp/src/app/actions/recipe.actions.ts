@@ -6,14 +6,13 @@ export const viewRecipes = createAction(
     'View Recipes',
     props<{ userId: number }>()
 )
-
 export const viewRecipesSuccess = createAction(
     'View Recipes Success',
     props<{ recipes: Recipe[] }>()
 )
-
 export const viewRecipesError = createAction(
-    'View Recipes Error'
+    'View Recipes Error',
+    props<{ error: any }>()
 )
 
 // create or update recipe

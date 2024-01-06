@@ -1,20 +1,21 @@
 
 #wrapper {
-    background-color: rgb(240, 240, 240);
+    background-color: var(--silver);
     text-align: center;
     font-size: 1.2vh;
 
+    height: 2vh;
     width: 100vw;
 
     padding: 1vh 0vw;
     margin: auto;
     
-    box-shadow: 0px -2px #cc8c38;
+    box-shadow: 0px -2px var(--orange);
 }
 
 a {
     color: black;
 }
 a:hover {
-    color: #cc8c38;
+    color: var(--orange);
 }

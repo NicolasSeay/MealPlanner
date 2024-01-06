@@ -19,9 +19,9 @@ export class RecipeEffects {
                         this.logger.debug("[RecipeEffects] Success on view recipes")
                         return viewRecipesSuccess({ recipes })
                     }),
-                    catchError(() => {
+                    catchError((error) => {
                         this.logger.info("[RecipeEffects] Error on view recipes")
-                        return of(viewRecipesError())
+                        return of(viewRecipesError({ error }))
                     })
                 )
             })

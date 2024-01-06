@@ -17,11 +17,13 @@ import { Logger } from './app.logger';
 import { RecipeEffects } from './effects/recipe.effects';
 import { userReducer } from './reducers/user.reducer';
 import { recipeReducer } from './reducers/recipe.reducer';
-import { loginErrorReducer, registerErrorReducer } from './reducers/error.reducer';
+import { expiredSessionErrorReducer, loginErrorReducer, registerErrorReducer } from './reducers/error.reducer';
 import { ResponseInterceptor } from './interceptors/responseInterceptor';
 import { RequestInterceptor } from './interceptors/requestInterceptor';
 import { ingredientReducer } from './reducers/ingredient.reducer';
 import { IngredientEffects } from './effects/ingredient.effects';
+import { NavPanelComponent } from './components/nav-panel/nav-panel.component';
+import { AdPanelComponent } from './components/ad-panel/ad-panel.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { IngredientEffects } from './effects/ingredient.effects';
     HomePageComponent,
     HeaderComponent,
     FooterComponent,
+    NavPanelComponent,
+    AdPanelComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,8 @@ import { IngredientEffects } from './effects/ingredient.effects';
       recipes: recipeReducer,
       ingredients: ingredientReducer,
       loginError: loginErrorReducer,
-      registerError: registerErrorReducer
+      registerError: registerErrorReducer,
+      expiredSessionError: expiredSessionErrorReducer,
     }, {}),
     StoreRouterConnectingModule.forRoot(),
     EffectsModule.forRoot([UserEffects, RecipeEffects, IngredientEffects]),

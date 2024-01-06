@@ -1,0 +1,24 @@
+
+nav {
+    width: 12vw;
+    height: 91vh;
+
+    background-color: var(--verylightgray);
+    box-shadow: inset -2px 0 var(--orange);
+    padding-top: 2vh;
+}
+
+nav > div {
+    padding: 1vh 0vw;
+    margin: 0 1.5vw;
+    text-align: center;
+
+    border-top: 1px solid black;
+}
+nav > div:last-child {
+    border-bottom: 1px solid black;
+}
+nav > div:hover {
+    color: var(--orange);
+    cursor: pointer;
+}
