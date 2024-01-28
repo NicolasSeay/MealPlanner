@@ -6,13 +6,38 @@
     width: 100vw;
 }
 
+.child {
+    display: inline-block;
+    vertical-align: middle;
+}
+
 #title {
     font-size: 3vh;
     font-family: Ogg-Light;
-
-    padding: 1vh 5vw;
+    width: 83vw;
+    padding: 1vh 1vw;
 }
 
 #mp {
     font-family: Ogg-Bold;
+}
+
+#logout {
+    width: 15vw;
+    text-align: center;
+}
+
+#logout-button {
+    padding: .5vh .5vw;
+    border-radius: .5vh;
+    color: var(--verydarkgray);
+    border: 1px solid var(--verydarkgray);
+
+    cursor: pointer;
+}
+#logout-button:hover {
+    // box-shadow: 0 0 0 1px var(--orange);
+    color: black;
+    border: 1px solid black;
+    
 }
