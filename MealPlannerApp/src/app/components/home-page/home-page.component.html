@@ -20,19 +20,19 @@
 
 				<div id="recipeDetails" *ngIf="isExpanded(recipe.id)">
 					<div id="ingredientDetails">
-						<div class="ingredientInfo" *ngFor="let ingredient of recipe.ingredients">
+						<div class="ingredientInfo text" *ngFor="let ingredient of recipe.ingredients">
 							{{ ingredient.name }}
 						</div>
 					</div>
 					<hr>
 					<div id="instructionDetails">
 						<div *ngIf="recipe.instructions.length > 0">
-							<ol class="instructionInfo" *ngFor="let instruction of recipe.instructions">
+							<ol class="instructionInfo text" *ngFor="let instruction of recipe.instructions">
 								{{ instruction.ordering }}.
 								{{ instruction.instruction }}
 							</ol>
 						</div>
-						<div id="noInstructionsMsg" *ngIf="recipe.instructions.length == 0">
+						<div id="noInstructionsMsg" class="text" *ngIf="recipe.instructions.length == 0">
 							No instructions yet.
 						</div>
 					</div>
