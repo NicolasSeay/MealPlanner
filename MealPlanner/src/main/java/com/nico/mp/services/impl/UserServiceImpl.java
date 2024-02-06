@@ -26,26 +26,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Boolean registerUser(String firstName, String lastName, String userName, String password) {
-		boolean registrationSuccess;
-		Optional<BigInteger> optionalId;
-		BigInteger id;
-		try {
-			optionalId = userRepository.getMaxId();
-			id = optionalId.orElseThrow(() -> new Exception(ERROR_SETTING_USER_ID));
-
-		} catch (Exception e) {
-			registrationSuccess = false;
-			return registrationSuccess;
+	public Boolean registerUser(User user) {
+		if (userRepository.existsByUsername(user.getUsername())) {
+			return false;
 		}
-		try {
-			log.info("REQUEST PAYLOAD: ", id, " ", firstName, " ", lastName, " ", userName, " ", password);
-			userRepository.registerUser(id, firstName, lastName, userName, password);
-			registrationSuccess = true;
-		} catch(Exception e) {
-			registrationSuccess = false;
-		}
-		return registrationSuccess;
+		userRepository.save(user);
+		return true;
     }
 
 }

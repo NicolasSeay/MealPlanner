@@ -25,12 +25,12 @@ export class UserService {
     )
   }
 
-  register(firstName: string, lastName: string, userName: string, password: string) {
+  register(firstname: string, lastname: string, username: string, password: string) {
     this.logger.info("[UserService] Sending register request to backend")
     var registerRequest: RegisterRequest = {
-      firstName,
-      lastName,
-      userName,
+      firstname,
+      lastname,
+      username,
       password
     }
     console.log(registerRequest);

@@ -1,7 +1,6 @@
 package com.nico.mp.controllers;
 
 import com.nico.mp.domain.LoginRequest;
-import com.nico.mp.domain.RegisterRequest;
 import com.nico.mp.domain.User;
 import com.nico.mp.services.UserService;
 import com.nico.mp.util.JWTUtil;
@@ -46,14 +45,15 @@ public class UserController {
 	}
 
 	@PostMapping("/register")
-	public ResponseEntity<Boolean> register(@RequestBody RegisterRequest registerRequest) {
+	public ResponseEntity<Boolean> register(@RequestBody User user) {
 		log.info("Registration request received");
-		log.info("Request Body", registerRequest);
-		Boolean registerUser = userService.registerUser(
-				registerRequest.getFirstName(),
-				registerRequest.getLastName(),
-				registerRequest.getUserName(),
-				registerRequest.getPassword());
+		Boolean registerUser;
+		try {
+			registerUser = userService.registerUser(user);
+		} catch(Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
 		if (Boolean.FALSE.equals(registerUser)) {
 			log.info("Registration - Failed to Register User");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

@@ -8,7 +8,7 @@ public interface UserService {
 	
 	User getUser(String username, String password);
 
-	Boolean registerUser(String firstName, String lastName, String userName, String password);
+	Boolean registerUser(User user);
 
 
 }
