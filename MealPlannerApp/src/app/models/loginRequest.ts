@@ -5,8 +5,8 @@ export type LoginRequest = {
 }
 
 export type RegisterRequest = {
-    firstname: string,
-    lastname: string,
-    username: string,
+    firstName: string,
+    lastName: string,
+    userName: string,
     password: string,
 }

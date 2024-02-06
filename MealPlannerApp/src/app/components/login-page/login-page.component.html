@@ -30,9 +30,9 @@
 
     <form id="registerForm" [formGroup]="registerForm" *ngIf="isRegistering" (ngSubmit)="doRegister()">
         <div id="registerInputs">
-            <input type="text" formControlName="firstname" class="form-control credential" placeholder="First Name"/>
-            <input type="text" formControlName="lastname" class="form-control credential" placeholder="Last Name"/>
-            <input type="text" formControlName="username" class="form-control credential" placeholder="Username"/>
+            <input type="text" formControlName="firstName" class="form-control credential" placeholder="First Name"/>
+            <input type="text" formControlName="lastName" class="form-control credential" placeholder="Last Name"/>
+            <input type="text" formControlName="userName" class="form-control credential" placeholder="Username"/>
             <input type="password" formControlName="password" class="form-control credential" placeholder="Password"/>
         </div>
 

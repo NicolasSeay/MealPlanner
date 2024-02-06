@@ -48,7 +48,9 @@ public class UserController {
 	@PostMapping("/register")
 	public ResponseEntity<Boolean> register(@RequestBody RegisterRequest registerRequest) {
 		log.info("Registration request received");
-		Boolean registerUser = userService.registerUser(registerRequest.getFirstName(),
+		log.info("Request Body", registerRequest);
+		Boolean registerUser = userService.registerUser(
+				registerRequest.getFirstName(),
 				registerRequest.getLastName(),
 				registerRequest.getUserName(),
 				registerRequest.getPassword());

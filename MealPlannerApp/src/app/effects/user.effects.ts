@@ -43,10 +43,10 @@ export class UserEffects {
     register$ = createEffect(() =>
         this.actions$.pipe(
             ofType(register),
-            switchMap((action) => this.userService.register(action.firstname, action.lastname, action.username, action.password).pipe(
+            switchMap((action) => this.userService.register(action.firstName, action.lastName, action.userName, action.password).pipe(
                 map(() => {
                     this.logger.info("[UserEffects] Successfully registered, attempting to login")
-                    return login({ username: action.username, password: action.password})
+                    return login({ username: action.userName, password: action.password})
                 }),
                 catchError(() => {
                     this.logger.info("[UserEffects] Unable to register user")

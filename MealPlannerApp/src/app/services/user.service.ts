@@ -25,15 +25,16 @@ export class UserService {
     )
   }
 
-  register(firstname: string, lastname: string, username: string, password: string) {
+  register(firstName: string, lastName: string, userName: string, password: string) {
     this.logger.info("[UserService] Sending register request to backend")
     var registerRequest: RegisterRequest = {
-      firstname,
-      lastname,
-      username,
+      firstName,
+      lastName,
+      userName,
       password
     }
-    return this.http.post<boolean>(
+    console.log(registerRequest);
+    return this.http.post<Boolean>(
       this.baseUrl + "/register",
       registerRequest
     )
