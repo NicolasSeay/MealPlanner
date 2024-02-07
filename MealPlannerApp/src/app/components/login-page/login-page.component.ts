@@ -33,9 +33,9 @@ export class LoginPageComponent implements OnInit {
     });
 
     this.registerForm = this.formBuilder.group({
-        firstname: ['', Validators.required],
-        lastname:  ['', Validators.required],
-        username:  ['', Validators.required],
+        firstName: ['', Validators.required],
+        lastName:  ['', Validators.required],
+        userName:  ['', Validators.required],
         password:  ['', Validators.required]
     });
   }
@@ -60,12 +60,12 @@ export class LoginPageComponent implements OnInit {
   }
 
   doRegister() {
-    this.logger.info(("Registration attempt: " + this.r['firstname'].value + " " + this.r['lastname'].value + " " + this.r['username'].value + " " + this.r['password'].value))
+    this.logger.info(("Registration attempt: " + this.r['firstName'].value + " " + this.r['lastName'].value + " " + this.r['userName'].value + " " + this.r['password'].value))
     this.submitted = true
     this.store.dispatch(register({
-      firstname: this.r['firstname'].value,
-      lastname: this.r['lastname'].value,
-      username: this.r['username'].value,
+      firstName: this.r['firstName'].value,
+      lastName: this.r['lastName'].value,
+      userName: this.r['userName'].value,
       password: this.r['password'].value,
     }))
     this.isRegistering = false

@@ -26,7 +26,12 @@ public class UserController {
 	@PostMapping("/login")
 	public ResponseEntity<User> login(@RequestBody LoginRequest loginRequest) {
 		log.info("Received login request");
-		User user = userService.getUser(loginRequest.getUsername(), loginRequest.getPassword());
+		User user;
+		try {
+			user = userService.getUser(loginRequest.getUsername(), loginRequest.getPassword());
+		} catch(Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 
 		if (user == null) {
 			log.info("Login - user not found");
@@ -42,6 +47,30 @@ public class UserController {
 					.headers(headers)
 					.body(user);
 		}
+	}
+
+	@PostMapping("/register")
+	public ResponseEntity<Boolean> register(@RequestBody User user) {
+		log.info("Registration request received");
+		Boolean registerUser;
+		try {
+			registerUser = userService.registerUser(user);
+		} catch(Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+		if (Boolean.FALSE.equals(registerUser)) {
+			log.info("Registration - Failed to Register User");
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		} else {
+			log.info("Registration - User Registered");
+			log.info("Logging User In");
+
+			return ResponseEntity.ok()
+					.body(registerUser);
+		}
+
+
 	}
 	
 }

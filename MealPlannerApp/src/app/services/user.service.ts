@@ -33,7 +33,8 @@ export class UserService {
       username,
       password
     }
-    return this.http.post<boolean>(
+    console.log(registerRequest);
+    return this.http.post<Boolean>(
       this.baseUrl + "/register",
       registerRequest
     )
