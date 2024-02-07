@@ -26,7 +26,12 @@ public class UserController {
 	@PostMapping("/login")
 	public ResponseEntity<User> login(@RequestBody LoginRequest loginRequest) {
 		log.info("Received login request");
-		User user = userService.getUser(loginRequest.getUsername(), loginRequest.getPassword());
+		User user;
+		try {
+			user = userService.getUser(loginRequest.getUsername(), loginRequest.getPassword());
+		} catch(Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 
 		if (user == null) {
 			log.info("Login - user not found");

@@ -13,7 +13,8 @@ export const loginSuccess = createAction(
 )
 
 export const loginError = createAction(
-    'User Login Error'
+    'User Login Error',
+    props<{ errorMessage: string }>()
 )
 
 export const logout = createAction(
@@ -26,7 +27,8 @@ export const register = createAction(
 )
 
 export const registerError = createAction(
-    'User Registration Error'
+    'User Registration Error',
+    props<{ errorMessage: string }>()
 )
 
 export const registerCancel = createAction(
