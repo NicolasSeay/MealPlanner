@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    <form id="loginForm" [formGroup]="loginForm" *ngIf="!isRegistering" (ngSubmit)="doLogin()">
+    <form id="loginForm" [formGroup]="loginForm" *ngIf="!(isRegistering$ | async)" (ngSubmit)="doLogin()">
         <div id="loginInputs">
             <input type="text" formControlName="username" class="form-control credential" placeholder="Username" />
             <input type="password" formControlName="password" class="form-control credential" placeholder="Password" />
@@ -28,7 +28,7 @@
         </div>
     </form>
 
-    <form id="registerForm" [formGroup]="registerForm" *ngIf="isRegistering" (ngSubmit)="doRegister()">
+    <form id="registerForm" [formGroup]="registerForm" *ngIf="isRegistering$ | async" (ngSubmit)="doRegister()">
         <div id="registerInputs">
             <input type="text" formControlName="firstName" class="form-control credential" placeholder="First Name"/>
             <input type="text" formControlName="lastName" class="form-control credential" placeholder="Last Name"/>
@@ -37,8 +37,9 @@
         </div>
 
         <button id="cancel" type="reset" (click)="cancelRegistration(); registerForm.reset()" class="btn btn-primary button">Cancel</button>
-        <button class="btn btn-primary button">Register</button>
-        
+        <button [disabled]="!registerForm.valid" class="btn btn-primary button">Register</button>
+
+        <div id="error" *ngIf="(registerError$ | async) != ''">{{ registerError$ | async }}</div>
     </form>
     
 </div>

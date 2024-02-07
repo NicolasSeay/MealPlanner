@@ -1,9 +1,9 @@
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, of, switchMap } from "rxjs";
 import { Injectable } from "@angular/core";
-import { Logger } from "../app.logger";
+import { Logger } from "../../app.logger";
 import { viewRecipes, viewRecipesError, viewRecipesSuccess } from "../actions/recipe.actions";
-import { RecipeService } from "../services/recipe.service";
+import { RecipeService } from "../../services/recipe.service";
 
 @Injectable()
 export class RecipeEffects {

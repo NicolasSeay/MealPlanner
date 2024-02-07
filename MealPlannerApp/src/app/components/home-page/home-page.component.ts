@@ -2,9 +2,9 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { viewRecipes } from 'src/app/actions/recipe.actions';
+import { viewRecipes } from 'src/app/store/actions/recipe.actions';
 import { Logger } from 'src/app/app.logger';
-import { selectExpiredSessionError, selectRecipes } from 'src/app/app.selectors';
+import { selectExpiredSessionError, selectRecipes } from 'src/app/store/selectors/app.selectors';
 import { Recipe } from 'src/app/models/recipe';
 
 @Component({

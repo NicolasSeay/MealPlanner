@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
-import { login, loginError, register, registerCancel, registerError } from "../actions/user.actions";
-import { Error } from "../models/error";
+import { login, loginError, register, registerBegin, registerCancel, registerError } from "../actions/user.actions";
+import { Error } from "../../models/error";
 import { viewRecipesError } from "../actions/recipe.actions";
 
 
@@ -25,7 +25,7 @@ export const registerErrorReducer = createReducer(
     on(registerError, (_, action) => { 
         return {message: action.errorMessage }     
     }),
-    on(login, register, registerCancel, () => initialRegisterErrorState)
+    on(login, register, registerBegin, registerCancel, () => initialRegisterErrorState)
 )
 
 
