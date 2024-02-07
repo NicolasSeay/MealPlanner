@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { logout } from 'src/app/actions/user.actions';
+import { logout } from 'src/app/store/actions/user.actions';
 
 @Component({
   selector: 'app-header',

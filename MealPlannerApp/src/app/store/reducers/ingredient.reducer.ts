@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store"
 import { logout } from "../actions/user.actions"
-import { Ingredient } from "../models/ingredient"
+import { Ingredient } from "../../models/ingredient"
 import { viewIngredientsSuccess } from "../actions/ingredient.actions"
 
 export type IngredientsState = Ingredient[]

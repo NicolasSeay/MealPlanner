@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store"
-import { Recipe } from "../models/recipe"
+import { Recipe } from "../../models/recipe"
 import { viewRecipesSuccess } from "../actions/recipe.actions"
 import { logout } from "../actions/user.actions"
 

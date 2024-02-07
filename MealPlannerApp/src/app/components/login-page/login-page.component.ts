@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { login, register, registerCancel } from 'src/app/actions/user.actions';
+import { login, register, registerBegin, registerCancel } from 'src/app/store/actions/user.actions';
 import { Logger } from 'src/app/app.logger';
-import { selectLoginError, selectRegisterError } from 'src/app/app.selectors';
+import { selectIsRegistering, selectLoginError, selectRegisterError } from 'src/app/store/selectors/app.selectors';
 
 @Component({
   selector: 'app-login-page',
@@ -13,18 +12,15 @@ import { selectLoginError, selectRegisterError } from 'src/app/app.selectors';
 })
 export class LoginPageComponent implements OnInit {
 
-  loginError$: Observable<string>
-  registerError$: Observable<string>
+  loginError$ = this.store.select(selectLoginError)
+  registerError$ = this.store.select(selectRegisterError)
+  isRegistering$ = this.store.select(selectIsRegistering)
   loginForm!: FormGroup
   registerForm!: FormGroup
   loading = false
   submitted = false
-  isRegistering = false
 
-  constructor(private store: Store, private formBuilder: FormBuilder, private logger: Logger) {
-    this.loginError$ = this.store.select(selectLoginError)
-    this.registerError$ = this.store.select(selectRegisterError)
-  }
+  constructor(private store: Store, private formBuilder: FormBuilder, private logger: Logger) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -34,7 +30,7 @@ export class LoginPageComponent implements OnInit {
 
     this.registerForm = this.formBuilder.group({
         firstName: ['', Validators.required],
-        lastName:  ['', Validators.required],
+        lastName:  [''],
         userName:  ['', Validators.required],
         password:  ['', Validators.required]
     });
@@ -51,11 +47,10 @@ export class LoginPageComponent implements OnInit {
   }
 
   beginRegistration() {
-    this.isRegistering = true
+    this.store.dispatch(registerBegin())
   }
 
   cancelRegistration() {
-    this.isRegistering = false
     this.store.dispatch(registerCancel())
   }
 
@@ -68,8 +63,6 @@ export class LoginPageComponent implements OnInit {
       userName: this.r['userName'].value,
       password: this.r['password'].value,
     }))
-    this.isRegistering = false
-    this.registerForm.reset()
   }
 
   alertMe() {

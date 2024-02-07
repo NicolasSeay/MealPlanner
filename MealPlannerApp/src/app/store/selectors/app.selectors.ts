@@ -1,8 +1,8 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { UserState } from "./reducers/user.reducer";
-import { RecipesState } from "./reducers/recipe.reducer";
-import { ExpiredSessionErrorState, LoginErrorState, RegisterErrorState } from "./reducers/error.reducer";
-import { IngredientsState } from "./reducers/ingredient.reducer";
+import { UserState } from "../reducers/user.reducer";
+import { RecipesState } from "../reducers/recipe.reducer";
+import { ExpiredSessionErrorState, LoginErrorState, RegisterErrorState } from "../reducers/error.reducer";
+import { IngredientsState } from "../reducers/ingredient.reducer";
 
 
 // User selectors
@@ -11,7 +11,12 @@ export const selectUserStateFeature =
 
 export const selectUser = createSelector(
   selectUserStateFeature,
-  (user: UserState) => user
+  (userState: UserState) => userState.user
+)
+
+export const selectIsRegistering = createSelector(
+  selectUserStateFeature,
+  (userState: UserState) => userState.isRegistering
 )
 
 
