@@ -23,7 +23,7 @@ public class JWTFilter extends OncePerRequestFilter {
     public boolean shouldNotFilter(HttpServletRequest request) {
         String path = request.getRequestURI();
         // don't check for JWT on login, since you don't have one yet
-        return path.contains("/login");
+        return path.contains("/login") || path.contains("/register");
     }
 
     @Override

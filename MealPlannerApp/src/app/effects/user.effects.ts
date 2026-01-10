@@ -18,11 +18,7 @@ export class UserEffects {
             switchMap((action) => {
                 return this.userService.login(action.username, action.password).pipe(
                     map(user => {
-                        if(user == null) {
-                            this.logger.info("[UserEffects] No matching user credentials")
-                            return loginError()
-                        }
-                
+                              
                         this.logger.debug("[UserEffects] Success on login ")
                         this.router.navigate(['/home/' + user.id])
                         this.logger.info("[UserEffects] Navigating to /home/" + user.id)
@@ -31,9 +27,13 @@ export class UserEffects {
                         
                         return loginSuccess({ user })
                     }),
-                    catchError(() => {
-                        this.logger.debug("[UserEffects] Error on login")
-                        return of(loginError())
+                    catchError((e) => {
+                        if (e.status == 500) {
+                            this.logger.debug("[UserEffects] Error on login")
+                            return of(loginError({ errorMessage: "Service Unavailable" }))
+                        }
+                        return of(loginError({ errorMessage: "Invalid Username or Password" }))
+                        
                     })
                 )
             })
@@ -43,16 +43,20 @@ export class UserEffects {
     register$ = createEffect(() =>
         this.actions$.pipe(
             ofType(register),
-            switchMap((action) => this.userService.register(action.firstname, action.lastname, action.username, action.password).pipe(
+            switchMap((action) => this.userService.register(action.firstName, action.lastName, action.userName, action.password).pipe(
                 map(() => {
                     this.logger.info("[UserEffects] Successfully registered, attempting to login")
-                    return login({ username: action.username, password: action.password})
+                    return login({ username: action.userName, password: action.password})
                 }),
-                catchError(() => {
-                    this.logger.info("[UserEffects] Unable to register user")
-                    return of(registerError())
+                catchError((e) => {
+                    if (e.status == 500) {
+                        this.logger.info("[UserEffects] Unable to register user")
+                        return of(registerError({ errorMessage: "Service Unavailable" }))
+                    }
+                    return of(registerError({errorMessage: "Username Taken"}))
+                    
                 })
             )
         ))
     )
-}
+} 

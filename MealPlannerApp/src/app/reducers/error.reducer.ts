@@ -10,7 +10,8 @@ export const initialLoginErrorState: LoginErrorState = {
 }
 export const loginErrorReducer = createReducer(
     initialLoginErrorState,
-    on(loginError, () => { return { message: 'Invalid username or password' }}),
+    on(loginError, (_, action) => { 
+        return { message: action.errorMessage }}),
     on(login, register, registerCancel, () => initialLoginErrorState)
 )
 
@@ -21,7 +22,9 @@ export const initialRegisterErrorState: RegisterErrorState = {
 }
 export const registerErrorReducer = createReducer(
     initialRegisterErrorState,
-    on(registerError, () => { return { message: 'Registration error' }}),
+    on(registerError, (_, action) => { 
+        return {message: action.errorMessage }     
+    }),
     on(login, register, registerCancel, () => initialRegisterErrorState)
 )
 
