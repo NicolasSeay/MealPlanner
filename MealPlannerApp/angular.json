@@ -86,10 +86,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "MealPlanner:build:production"
+              "buildTarget": "MealPlanner:build:production"
             },
             "development": {
-              "browserTarget": "MealPlanner:build:development"
+              "buildTarget": "MealPlanner:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -97,7 +97,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "MealPlanner:build"
+            "buildTarget": "MealPlanner:build"
           }
         },
         "test": {
