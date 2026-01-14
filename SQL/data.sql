@@ -1,9 +1,9 @@
 USE mealplanner;
 
 # clear any existing data before filling with dummy data
+DELETE FROM instruction;
 DELETE FROM ingredient;
 DELETE FROM recipe;
--- DELETE FROM credentials;
 DELETE FROM user;
 
 # User data
@@ -36,4 +36,3 @@ INSERT INTO instruction VALUES
 (4, 2, 1, "Boil da water"),
 (5, 2, 2, "Cook da pasta"),
 (6, 2, 3, "Cheese it up");
-

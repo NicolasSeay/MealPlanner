@@ -11,7 +11,8 @@ import { Recipe } from 'src/app/models/recipe';
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
+  standalone: false
 })
 export class HomePageComponent implements OnInit {
 

@@ -1,48 +1,61 @@
 
 <div id="wrapper">
 
-	<app-header></app-header>
+  <app-header></app-header>
 
-	<app-nav-panel></app-nav-panel>
+  <app-nav-panel></app-nav-panel>
 
-	<div id="main">
-        <div id="error" *ngIf="(expiredSessionError$ | async) != ''">{{ expiredSessionError$ | async }}</div>
+  <div id="main">
+    @if ((expiredSessionError$ | async) != '') {
+      <div id="error">{{ expiredSessionError$ | async }}</div>
+    }
 
-		<div id="recipeBox" *ngFor="let recipe of recipes$ | async; let i = index">
-			<div id="recipe">
-				<div id="recipeHeader" (click)="expandRecipe(recipe.id)" [ngClass]="isExpanded(recipe.id) ? 'recipe-header-active' : ''">
-					<div class='expand-collapse-icon' [ngClass]="isExpanded(recipe.id) ? 'collapsed' : ''"></div>
-					<div id="recipeName">{{ recipe.name }}</div>
-					<div class="tag">Servings: {{ recipe.servings }}</div>
-					<div class="tag">Prep-Time: {{ recipe.prepTime }}</div>
-					<!-- <div class="tag">Cals-per-serving: {{ recipe.totalCals / recipe.servings }}</div> -->
-				</div>
+    @for (recipe of recipes$ | async; track recipe; let i = $index) {
+      <div id="recipeBox">
+        <div id="recipe">
+          <div id="recipeHeader" (click)="expandRecipe(recipe.id)" [ngClass]="isExpanded(recipe.id) ? 'recipe-header-active' : ''">
+            <div class='expand-collapse-icon' [ngClass]="isExpanded(recipe.id) ? 'collapsed' : ''"></div>
+            <div id="recipeName">{{ recipe.name }}</div>
+            <div class="tag">Servings: {{ recipe.servings }}</div>
+            <div class="tag">Prep-Time: {{ recipe.prepTime }}</div>
+            <!-- <div class="tag">Cals-per-serving: {{ recipe.totalCals / recipe.servings }}</div> -->
+          </div>
+          @if (isExpanded(recipe.id)) {
+            <div id="recipeDetails">
+              <div id="ingredientDetails">
+                @for (ingredient of recipe.ingredients; track ingredient) {
+                  <div class="ingredientInfo text">
+                    {{ ingredient.name }}
+                  </div>
+                }
+              </div>
+              <hr>
+                <div id="instructionDetails">
+                  @if (recipe.instructions.length > 0) {
+                    <div>
+                      @for (instruction of recipe.instructions; track instruction) {
+                        <ol class="instructionInfo text">
+                          {{ instruction.ordering }}.
+                          {{ instruction.instruction }}
+                        </ol>
+                      }
+                    </div>
+                  }
+                  @if (recipe.instructions.length == 0) {
+                    <div id="noInstructionsMsg" class="text">
+                      No instructions yet.
+                    </div>
+                  }
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
 
-				<div id="recipeDetails" *ngIf="isExpanded(recipe.id)">
-					<div id="ingredientDetails">
-						<div class="ingredientInfo text" *ngFor="let ingredient of recipe.ingredients">
-							{{ ingredient.name }}
-						</div>
-					</div>
-					<hr>
-					<div id="instructionDetails">
-						<div *ngIf="recipe.instructions.length > 0">
-							<ol class="instructionInfo text" *ngFor="let instruction of recipe.instructions">
-								{{ instruction.ordering }}.
-								{{ instruction.instruction }}
-							</ol>
-						</div>
-						<div id="noInstructionsMsg" class="text" *ngIf="recipe.instructions.length == 0">
-							No instructions yet.
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <app-ad-panel></app-ad-panel>
 
-	<app-ad-panel></app-ad-panel>
-	
-	<app-footer></app-footer>
+    <app-footer></app-footer>
 
-</div>
+  </div>
