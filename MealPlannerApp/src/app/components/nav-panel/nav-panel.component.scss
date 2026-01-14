@@ -1,24 +1,34 @@
-
 nav {
-    width: 12vw;
-    height: 91vh;
-
-    background-color: var(--verylightgray);
-    box-shadow: inset -2px 0 var(--orange);
-    padding-top: 2vh;
+  width: 16rem;
+  height: 100vh;
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
 }
 
 nav > div {
-    padding: 1vh 0vw;
-    margin: 0 1.5vw;
-    text-align: center;
+  padding: 0.75rem 1.5rem;
+  margin: 0.25rem 1rem;
+  text-align: left;
+  border-radius: var(--border-radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-color);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
 
-    border-top: 1px solid black;
-}
-nav > div:last-child {
-    border-bottom: 1px solid black;
-}
 nav > div:hover {
-    color: var(--orange);
-    cursor: pointer;
+  background-color: var(--bg-tertiary);
+  color: var(--primary-color);
+}
+
+nav > div:first-child {
+  margin-top: 0;
+}
+
+nav > div:last-child {
+  margin-bottom: 0;
 }

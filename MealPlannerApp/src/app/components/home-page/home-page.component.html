@@ -1,33 +1,33 @@
 
 <div id="wrapper">
-
   <app-header></app-header>
 
-  <app-nav-panel></app-nav-panel>
+  <div class="content">
+    <app-nav-panel></app-nav-panel>
 
-  <div id="main">
-    @if ((expiredSessionError$ | async) != '') {
-      <div id="error">{{ expiredSessionError$ | async }}</div>
-    }
+    <div id="main">
+      @if ((expiredSessionError$ | async) != '') {
+        <div id="error">{{ expiredSessionError$ | async }}</div>
+      }
 
-    @for (recipe of recipes$ | async; track recipe; let i = $index) {
-      <div id="recipeBox">
-        <div id="recipe">
-          <div id="recipeHeader" (click)="expandRecipe(recipe.id)" [ngClass]="isExpanded(recipe.id) ? 'recipe-header-active' : ''">
-            <div class='expand-collapse-icon' [ngClass]="isExpanded(recipe.id) ? 'collapsed' : ''"></div>
-            <div id="recipeName">{{ recipe.name }}</div>
-            <div class="tag">Servings: {{ recipe.servings }}</div>
-            <div class="tag">Prep-Time: {{ recipe.prepTime }}</div>
-            <!-- <div class="tag">Cals-per-serving: {{ recipe.totalCals / recipe.servings }}</div> -->
-          </div>
-          @if (isExpanded(recipe.id)) {
-            <div id="recipeDetails">
-              <div id="ingredientDetails">
-                @for (ingredient of recipe.ingredients; track ingredient) {
-                  <div class="ingredientInfo text">
-                    {{ ingredient.name }}
-                  </div>
-                }
+      @for (recipe of recipes$ | async; track recipe; let i = $index) {
+        <div id="recipeBox">
+          <div id="recipe">
+            <div id="recipeHeader" (click)="expandRecipe(recipe.id)" [ngClass]="isExpanded(recipe.id) ? 'recipe-header-active' : ''">
+              <div class='expand-collapse-icon' [ngClass]="isExpanded(recipe.id) ? 'collapsed' : ''"></div>
+              <div id="recipeName">{{ recipe.name }}</div>
+              <div class="tag">Servings: {{ recipe.servings }}</div>
+              <div class="tag">Prep-Time: {{ recipe.prepTime }}</div>
+              <!-- <div class="tag">Cals-per-serving: {{ recipe.totalCals / recipe.servings }}</div> -->
+            </div>
+            @if (isExpanded(recipe.id)) {
+              <div id="recipeDetails">
+                <div id="ingredientDetails">
+                  @for (ingredient of recipe.ingredients; track ingredient) {
+                    <div class="ingredientInfo text">
+                      {{ ingredient.name }}
+                    </div>
+                  }
               </div>
               <hr>
                 <div id="instructionDetails">
@@ -55,7 +55,7 @@
     </div>
 
     <app-ad-panel></app-ad-panel>
-
-    <app-footer></app-footer>
-
   </div>
+
+  <app-footer></app-footer>
+</div>

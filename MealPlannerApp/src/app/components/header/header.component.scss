@@ -1,43 +1,44 @@
-
 #wrapper {
-    background-color: var(--silver);
-    box-shadow: inset 0px -2px var(--orange);
-    height: 6.5vh;
-    width: 100vw;
-}
-
-.child {
-    display: inline-block;
-    vertical-align: middle;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+  height: 4rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  box-shadow: var(--shadow);
 }
 
 #title {
-    font-size: 3vh;
-    font-family: Ogg-Light;
-    width: 83vw;
-    padding: 1vh 1vw;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--text-color);
+  margin: 0;
 }
 
 #mp {
-    font-family: Ogg-Bold;
+  font-weight: 600;
+  color: var(--primary-color);
 }
 
 #logout {
-    width: 15vw;
-    text-align: center;
+  display: flex;
+  align-items: center;
 }
 
 #logout-button {
-    padding: .5vh .5vw;
-    border-radius: .5vh;
-    color: var(--verydarkgray);
-    border: 1px solid var(--verydarkgray);
-
-    cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: transparent;
+  color: var(--text-color);
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
 }
+
 #logout-button:hover {
-    // box-shadow: 0 0 0 1px var(--orange);
-    color: black;
-    border: 1px solid black;
-    
+  background-color: var(--bg-secondary);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
 }
