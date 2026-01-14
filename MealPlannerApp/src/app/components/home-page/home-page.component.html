@@ -16,8 +16,10 @@
             <div id="recipeHeader" (click)="expandRecipe(recipe.id)">
               <div class='expand-collapse-icon' [ngClass]="isExpanded(recipe.id) ? 'collapsed' : ''"></div>
               <div id="recipeName">{{ recipe.name }}</div>
-              <div class="tag">Servings: {{ recipe.servings }}</div>
-              <div class="tag">Prep-Time: {{ recipe.prepTime }}</div>
+              <div class="tags-container">
+                <div class="tag">Servings: {{ recipe.servings }}</div>
+                <div class="tag">Prep-Time: {{ recipe.prepTime }}</div>
+              </div>
             </div>
             @if (isExpanded(recipe.id)) {
               <div id="recipeDetails">

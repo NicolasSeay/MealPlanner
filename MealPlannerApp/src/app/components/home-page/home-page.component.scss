@@ -59,16 +59,22 @@ app-footer {
 #recipeHeader {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 1rem;
   background-color: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
 }
 
 #recipeName {
+  flex: 1;
+  text-align: center;
   font-size: 1.125rem;
   font-weight: 600;
   margin: 0;
+}
+
+.tags-container {
+  display: flex;
+  align-items: center;
 }
 
 .tag {
