@@ -26,13 +26,14 @@
 
 #title {
   font-size: 2rem;
-  font-family: 'Ogg-Bold', sans-serif;
+  font-weight: 600;
   color: var(--text-color);
   margin-bottom: 0.5rem;
 }
 
 #mp {
   color: var(--primary-color);
+  font-weight: 600;
 }
 
 #loginForm, #registerForm {

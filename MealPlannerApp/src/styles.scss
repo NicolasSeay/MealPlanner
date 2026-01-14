@@ -23,14 +23,14 @@
 
 body {
   margin: 0;
-  font-family: 'Ogg-Regular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Ogg-Bold', inherit;
+  font-family: inherit;
   margin: 0 0 0.5rem 0;
   color: var(--text-color);
 }
@@ -57,45 +57,4 @@ a {
 
 a:hover {
   color: var(--primary-hover);
-}
-
-@font-face {
-    font-family: Ogg-Bold;
-    src: url('/assets/fonts/OggBold.woff')
-}
-@font-face {
-    font-family: Ogg-Bold-Italic;
-    src: url('/assets/fonts/OggBoldItalic.woff')
-}
-@font-face {
-    font-family: Ogg-Medium;
-    src: url('/assets/fonts/OggMedium.woff')
-}
-@font-face {
-    font-family: Ogg-Medium-Italic;
-    src: url('/assets/fonts/OggMediumItalic.woff')
-}
-@font-face {
-    font-family: Ogg-Regular;
-    src: url('/assets/fonts/OggRegular.woff')
-}
-@font-face {
-    font-family: Ogg-Regular-Italic;
-    src: url('/assets/fonts/OggRegularItalic.woff')
-}
-@font-face {
-    font-family: Ogg-Light;
-    src: url('/assets/fonts/OggLight.woff')
-}
-@font-face {
-    font-family: Ogg-Light-Italic;
-    src: url('/assets/fonts/OggLightItalic.woff')
-}
-@font-face {
-    font-family: Ogg-Thin;
-    src: url('/assets/fonts/OggThin.woff')
-}
-@font-face {
-    font-family: Ogg-Thin-Italic;
-    src: url('/assets/fonts/OggThinItalic.woff')
 }
