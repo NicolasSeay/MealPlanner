@@ -1,21 +1,25 @@
 #wrapper {
-  min-height: 100vh;
+  height: 100vh;
   background-color: var(--bg-color);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .content {
   flex: 1;
   display: flex;
+  overflow: hidden;
 }
 
 app-nav-panel {
   flex-shrink: 0;
+  height: 100%;
 }
 
 app-ad-panel {
   flex-shrink: 0;
+  height: 100%;
 }
 
 app-footer {
@@ -25,7 +29,15 @@ app-footer {
 #main {
   flex: 1;
   padding: 2rem;
-  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#recipeBox {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem; /* for scrollbar space */
 }
 
 #recipeBox {
