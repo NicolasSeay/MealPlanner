@@ -29,8 +29,8 @@
     "@ngrx/operators": "^18.0.0"
   },
   "devDependencies": {
-    "@angular/build": "^20.3.14",
-    "@angular/cli": "~20.3.14",
+    "@angular/build": "^21.0.5",
+    "@angular/cli": "~21.0.5",
     "@angular/compiler-cli": "^21.0.2",
     "@types/jasmine": "~4.3.0",
     "critters": ">=0.0.20",
@@ -40,6 +40,6 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.8.3"
+    "typescript": "~5.9.3"
   }
 }
