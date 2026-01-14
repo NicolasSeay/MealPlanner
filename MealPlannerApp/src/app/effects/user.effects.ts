@@ -24,8 +24,8 @@ export class UserEffects {
                         }
                 
                         this.logger.debug("[UserEffects] Success on login ")
-                        this.router.navigate(['/home/' + user.id])
-                        this.logger.info("[UserEffects] Navigating to /home/" + user.id)
+                        this.router.navigate(['/home'])
+                        this.logger.info("[UserEffects] Navigating to /home")
 
                         sessionStorage.setItem('userId', user.id.toString())
                         
