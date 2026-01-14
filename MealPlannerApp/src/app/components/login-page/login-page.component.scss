@@ -1,134 +1,112 @@
-
 .image {
-    width: 100%;
-    height: 100vh;
-    
-    background-image: url("../../../assets/images/flatlay-iron-skillet-with-meat-and-other-food.jpg");
-    background-size: cover;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../../assets/images/flatlay-iron-skillet-with-meat-and-other-food.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #wrapper {
-    background-color: rgba(255, 255, 255, 0.623);
-    height: 60vh;
-    width: 20vw;
-    min-height: 400px;
-    min-width: 300px;
-
-    text-align: center;
-    box-shadow: 0 0 1vh 1vh rgba(0, 0, 0, 0.397);
-
-    margin: auto;
-    position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
 }
 
 #title-section {
-    background-color: var(--verylightgray);
-    color: black;
-    box-shadow: 0px 2px var(--orange);
-    font-size: max(2vw, 30px);
-    font-family: Ogg-Regular;
-
-    height: 20%;
-    position: relative;
+  margin-bottom: 2rem;
 }
 
 #title {
-    padding: 0 2vw;
-    margin: auto;
-    position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
-    height: fit-content;
-    width: fit-content;
+  font-size: 2rem;
+  font-family: 'Ogg-Bold', sans-serif;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
 }
 
 #mp {
-    font-family: Ogg-Bold;
+  color: var(--primary-color);
 }
 
-#loginForm {
-    height: 70%;
-}
-
-#registerForm {
-    height: 70%;
-}
-
-#loginInputs {
-    padding-top: 30%;
-}
-
-#registerInputs {
-    padding-top: 20%;
+#loginForm, #registerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .credential {
-    color: black;
-    width: 70%;
-    width: min-content;
-    font-size: max(1vw, 16px);
-    
-    padding: 8px 16px;
-    border: none;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  background-color: var(--bg-color);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
 
-    background-color: var(--verylightgray);
-    box-shadow: 0 0 0 1px var(--darkgray);
-    margin: 1vh auto;
-}
-.credential:focus-visible {
-    outline: none;
-}
-.credential:hover {
-    box-shadow: 0 0 0 1px var(--orange), 0.5vh 0.5vh var(--orange);
-}
 .credential:focus {
-    box-shadow: 0 0 0 2px var(--orange);
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .button {
-    font-size: max(1vw, 16px);
-    
-    padding: 8px 16px;
-    border: none;
-
-    background-color: rgba(255, 255, 255, 0.404);
-    box-shadow: 0 0 0 1px var(--orange);
-    margin: 5vh 1vw;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
+
 .button:hover {
-    box-shadow: 0 0 0 1px var(--orange), 0.5vh 0.5vh var(--orange);
-    cursor: pointer;
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
 }
 
 #cancel {
-    box-shadow: 0 0 0 1px var(--verydarkgray);
+  background-color: transparent;
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
 }
+
 #cancel:hover {
-    box-shadow: 0 0 0 1px var(--verydarkgray), 0.5vh 0.5vh var(--verydarkgray);
+  background-color: var(--secondary-color);
+  color: white;
 }
 
 #error {
-    color: red;
-    font-size: 14px;
-    font-weight: bold;
-    margin: 1vh auto;
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
 }
 
 #formFooter {
-    position: absolute;
-    width: 100%;
-    margin: 0 auto;
-    bottom: 6%;
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--text-light);
 }
-#formFooter > * {
-    font-size: max(0.6vw, 12px);
+
+#formFooter a {
+  color: var(--primary-color);
+  text-decoration: underline;
 }
-#formFooter > a {
-    color: blue;
-    text-decoration: underline;
-    width: fit-content;
-    margin: auto;
+
+#formFooter a:hover {
+  color: var(--primary-hover);
 }
-#formFooter > a:hover {
-    cursor: pointer;
+
+#loginInputs, #registerInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }

@@ -1,21 +1,19 @@
-
 #wrapper {
-    background-color: var(--silver);
-    text-align: center;
-    font-size: 1.2vh;
-
-    height: 2vh;
-    width: 100vw;
-
-    padding: 1vh 0vw;
-    margin: auto;
-    
-    box-shadow: 0px -2px var(--orange);
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  padding: 1rem 0;
+  width: 100%;
 }
 
 a {
-    color: black;
+  color: var(--primary-color);
+  text-decoration: none;
 }
+
 a:hover {
-    color: var(--orange);
+  color: var(--primary-hover);
+  text-decoration: underline;
 }

@@ -1,26 +1,62 @@
-/* You can add global styles to this file, and also import other style files */
-
-/* --MAIN COLOR PALETTE--
-Main orange: #cc8c38
-Light gray: rgb(240, 240, 240)
-Medium gray: lightgray
-Dark gray: rgb(173, 173, 173)
-*/
-
-
-
-body {
-    margin: 0;
-    font-family: 'Verdana', sans-serif;
-}
+/* Global Styles for Modern Minimal Design */
 
 :root {
-    --verydarkgray: rgb(119, 119, 119);
-    --darkgray: rgb(173, 173, 173);
-    --silver: rgb(192, 192, 192);
-    --lightgray: rgb(211, 211, 211);
-    --verylightgray: rgb(240, 240, 240);
-    --orange: #cc8c38;
+  --primary-color: #2563eb; /* Modern blue */
+  --primary-hover: #1d4ed8;
+  --secondary-color: #64748b; /* Slate gray */
+  --accent-color: #f59e0b; /* Amber for warmth */
+  --text-color: #1f2937; /* Dark gray */
+  --text-light: #6b7280; /* Light gray */
+  --bg-color: #ffffff; /* White */
+  --bg-secondary: #f8fafc; /* Very light gray */
+  --bg-tertiary: #f1f5f9; /* Light slate */
+  --border-color: #e2e8f0; /* Light border */
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --border-radius: 8px;
+  --border-radius-lg: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Ogg-Regular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Ogg-Bold', inherit;
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color);
+}
+
+p {
+  margin: 0 0 1rem 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+input, textarea, select {
+  font-family: inherit;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-hover);
 }
 
 @font-face {
