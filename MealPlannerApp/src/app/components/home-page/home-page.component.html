@@ -13,12 +13,11 @@
       @for (recipe of recipes$ | async; track recipe; let i = $index) {
         <div id="recipeBox">
           <div id="recipe">
-            <div id="recipeHeader" (click)="expandRecipe(recipe.id)" [ngClass]="isExpanded(recipe.id) ? 'recipe-header-active' : ''">
+            <div id="recipeHeader" (click)="expandRecipe(recipe.id)">
               <div class='expand-collapse-icon' [ngClass]="isExpanded(recipe.id) ? 'collapsed' : ''"></div>
               <div id="recipeName">{{ recipe.name }}</div>
               <div class="tag">Servings: {{ recipe.servings }}</div>
               <div class="tag">Prep-Time: {{ recipe.prepTime }}</div>
-              <!-- <div class="tag">Cals-per-serving: {{ recipe.totalCals / recipe.servings }}</div> -->
             </div>
             @if (isExpanded(recipe.id)) {
               <div id="recipeDetails">
